@@ -12,7 +12,14 @@ public class Ingrediente {
     @Column
     private String Allergeni;
 
-    @ManyToMany
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "ricetta",
+            joinColumns = {
+                    @JoinColumn(name = "id_ingrediente")
+            },
+            inverseJoinColumns = {@JoinColumn(name = "id_piatto")}
+    )
     private List<Piatto> piatti;
 
 }

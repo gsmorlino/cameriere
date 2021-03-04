@@ -1,28 +1,31 @@
 package org.accademiadellevante.cameriere.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Ordine {
 
+    @Id
+    private int id;
+
     @Column
-    private int Quantita;
+    private int quantita;
 
     @ManyToOne
+    @JoinColumn(name = "id_servizio")
     public Servizio servizio;
 
-    @Id
-    int id;
+
 
     @ManyToOne
+    @JoinColumn(name = "id_piatto")
     public Piatto piatti;
 
     public int getQuantita() {
-        return Quantita;
+        return quantita;
     }
 
     public void setQuantita(int quantita) {
-        Quantita = quantita;
+        this.quantita = quantita;
     }
 }

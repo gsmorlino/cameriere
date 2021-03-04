@@ -7,13 +7,28 @@ import java.util.List;
 @Entity
 public class Servizio {
 
-    public int getId() {
-        return id;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column
+    private Date Data;
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "gruppo",
+            joinColumns = {
+                    @JoinColumn(name = "id_servizio")
+            },
+            inverseJoinColumns = {@JoinColumn(name = "id_cliente")}
+    )
+    public List<Cliente> gruppo;
+
+
+
+    public int getId() {
+        return id;
+    }
 
     public Date getData() {
         return Data;
@@ -22,18 +37,6 @@ public class Servizio {
     public void setData(Date data) {
         Data = data;
     }
-
-    @Column
-    private Date Data;
-
-    @ManyToOne
-    public Tavolo tavolo;
-
-    @ManyToMany
-    public List<Cliente> gruppo;
-
-    @ManyToOne
-    public Cameriere cameriere;
 
 
 }
