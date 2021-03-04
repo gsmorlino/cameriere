@@ -5,25 +5,28 @@ import java.util.List;
 
 @Entity
 public class Sala {
-    public int getIDSala() {
-        return IDSala;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int IDSala;
-
-    public String getNomeSala() {
-        return NomeSala;
-    }
-
-    public void setNomeSala(String nomeSala) {
-        NomeSala = nomeSala;
-    }
+    private int id;
 
     @Column
-    private String NomeSala;
+    private String nome;
 
-    @OneToMany
+
+    @OneToMany(mappedBy = "sala")
     public List<Tavolo> tavoli;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }

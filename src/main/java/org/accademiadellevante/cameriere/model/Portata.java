@@ -14,6 +14,12 @@ public class Portata {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column
+    private String NomePortata;
+
+    @OneToMany(mappedBy = "portata")
+    public List<Piatto> piatti;
+
     public String getNomePortata() {
         return NomePortata;
     }
@@ -21,10 +27,4 @@ public class Portata {
     public void setNomePortata(String nomePortata) {
         NomePortata = nomePortata;
     }
-
-    @Column
-    private String NomePortata;
-
-    @OneToMany
-    public List<Piatto> piatti;
 }

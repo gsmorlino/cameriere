@@ -8,25 +8,23 @@ public class Tavolo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column
+    private String descrizione;
+
+    @ManyToOne
+    @JoinColumn(name = "id_sala")
+    public Sala sala;
+
     public int getId() {
         return id;
     }
-    public Boolean occupato = false;
 
     public String getDescrizione() {
-        return Descrizione;
+        return descrizione;
     }
 
     public void setDescrizione(String descrizione) {
-        Descrizione = descrizione;
+        this.descrizione = descrizione;
     }
 
-    @Column
-    private String Descrizione;
-
-    @ManyToOne
-    public Sala sala;
-
-    @ManyToOne
-    public Settore settore;
 }
