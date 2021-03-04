@@ -6,13 +6,16 @@ import java.util.List;
 @Entity
 public class Ordine {
 
-    public int getId() {
-        return id;
-    }
+    @Column
+    private int Quantita;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @ManyToOne
+    public Servizio servizio;
+
+    @Id
+    @ManyToOne
+    public Piatto piatti;
 
     public int getQuantita() {
         return Quantita;
@@ -21,13 +24,4 @@ public class Ordine {
     public void setQuantita(int quantita) {
         Quantita = quantita;
     }
-
-    @Column
-    private int Quantita;
-
-    @ManyToOne
-    public Servizio servizio;
-
-    @ManyToOne
-    public Piatto piatti;
 }

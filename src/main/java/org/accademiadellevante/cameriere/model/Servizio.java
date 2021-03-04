@@ -2,6 +2,7 @@ package org.accademiadellevante.cameriere.model;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 public class Servizio {
@@ -28,8 +29,11 @@ public class Servizio {
     @ManyToOne
     public Tavolo tavolo;
 
+    @ManyToMany
+    public List<Cliente> gruppo;
+
     @ManyToOne
-    public Cliente cliente;
+    public Cameriere cameriere;
 
 
 }

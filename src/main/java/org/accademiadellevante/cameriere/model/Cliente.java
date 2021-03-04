@@ -18,6 +18,10 @@ public class Cliente {
     @Column
     private String Cellulare;
 
+    public int getId() {
+        return id;
+    }
+
     public String getNome() {
         return Nome;
     }
@@ -40,9 +44,5 @@ public class Cliente {
 
     public void setCellulare(String cellulare) {
         Cellulare = cellulare;
-    }
-
-    public int getId() {
-        return id;
     }
 }
