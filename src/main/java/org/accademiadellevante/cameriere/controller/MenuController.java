@@ -1,6 +1,7 @@
 package org.accademiadellevante.cameriere.controller;
 
 import org.accademiadellevante.cameriere.model.Piatto;
+import org.accademiadellevante.cameriere.repository.PiattoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
