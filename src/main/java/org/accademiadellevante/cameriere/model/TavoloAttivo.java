@@ -7,10 +7,11 @@ import javax.persistence.OneToOne;
 @Entity
 public class TavoloAttivo {
     @Id
+    int id;
+
     @OneToOne
     public Tavolo tavolo;
 
-    @Id
     @OneToOne
     public Servizio servizio;
 }

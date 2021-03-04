@@ -8,10 +8,11 @@ import javax.persistence.ManyToOne;
 public class Ricetta {
 
     @Id
+    int id;
+
     @ManyToOne
     public Ingrediente ingrediente;
 
-    @Id
     @ManyToOne
     public Piatto piatto;
 }

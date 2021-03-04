@@ -9,11 +9,12 @@ public class Ordine {
     @Column
     private int Quantita;
 
-    @Id
     @ManyToOne
     public Servizio servizio;
 
     @Id
+    int id;
+
     @ManyToOne
     public Piatto piatti;
 

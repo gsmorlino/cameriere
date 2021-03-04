@@ -5,9 +5,11 @@ import javax.persistence.*;
 @Entity
 public class Gruppo {
     @Id
+    int id;
+
     @ManyToOne
     public Cliente cliente;
-    @Id
+
     @ManyToOne
     public Servizio servizio;
 }
