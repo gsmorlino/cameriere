@@ -1,5 +1,7 @@
 package org.accademiadellevante.cameriere.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class Tavolo {
 
     @ManyToOne
     @JoinColumn(name = "id_sala")
+    @JsonIgnoreProperties("tavoli")
     public Sala sala;
 
     public int getId() {

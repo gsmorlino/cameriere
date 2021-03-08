@@ -1,19 +1,19 @@
 @charset "ISO-8859-1";
-	
+
 .navbar{
-	
+
 	height:60px;
 	padding:0 0;
-		
+
 }
 
 .navbar-brand{
-	padding:0 0; 
-	
+	padding:0 0;
+
 }
 
 .col-md {
-	
+
 	width:0%;
 	padding:0 0;
 	margin:10% 10%;
@@ -21,11 +21,11 @@
 
 
 .btn-group {
-	
+
 	margin-top:10px;
 	margin-left:15px;
 	width:150%;
-	
+
 }
 
 
@@ -38,48 +38,48 @@ h4 {
 .sfondo{
 	background-image: url("../img/image2.jpg");
 	background-size:cover;
-	
+
 }
 
 .sfondoesterno {
 	background-image: url("../img/img3.jpg");
 	background-size:cover;
-	
+
 }
 
 .orologio {
-	
+
 	position: absolute;
   	right: 10px;
 }
 
 .row {
-	
+
 	padding-bottom: 0;
 }
 
 .dropdown-menu{
-	
+
 	background-color: #343a40;
 }
 
 .dropdown-item {
-	
+
 	color: #ffff;
 }
-	
+
 #navbarDropdown {
-	
+
 	color: #ffff;
 }
-	
+
 .modal-content{
-	
+
 	width:auto;
-}	
-	
+}
+
 .modal-body  {
-	
+
 	background-color: #343a40;
 }
 
@@ -90,11 +90,11 @@ h4 {
 .modal-footer{
 	background-color: #343a40;
 }
-	
+
 .modal-dialog {
 	width:60%;
 	margin-left: 20%;
 	margin-right: 20%;
-}	
-	
+}
+
 
