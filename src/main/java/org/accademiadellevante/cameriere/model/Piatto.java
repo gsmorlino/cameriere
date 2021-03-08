@@ -1,26 +1,31 @@
 package org.accademiadellevante.cameriere.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Piatto {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column
-    private String NomePiatto;
+    private String nome;
 
     @Column
-    private String Descrizione;
+    private String descrizione;
 
     @Column
     private double prezzo;
 
     @ManyToOne
     @JoinColumn(name = "id_portata")
+    @JsonIgnoreProperties("piatti")
     public Portata portata;
 
     @ManyToMany(mappedBy = "piatti")
@@ -31,6 +36,10 @@ public class Piatto {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public double getPrezzo() {
         return prezzo;
     }
@@ -39,19 +48,19 @@ public class Piatto {
         prezzo = prezzo;
     }
 
-    public String getNomePiatto() {
-        return NomePiatto;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomePiatto(String nomePiatto) {
-        NomePiatto = nomePiatto;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getDescrizione() {
-        return Descrizione;
+        return descrizione;
     }
 
     public void setDescrizione(String descrizione) {
-        Descrizione = descrizione;
+        this.descrizione = descrizione;
     }
 }

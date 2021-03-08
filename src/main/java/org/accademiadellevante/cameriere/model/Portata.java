@@ -10,21 +10,25 @@ public class Portata {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column
-    private String NomePortata;
+    private String nome;
 
     @OneToMany(mappedBy = "portata")
     public List<Piatto> piatti;
 
-    public String getNomePortata() {
-        return NomePortata;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomePortata(String nomePortata) {
-        NomePortata = nomePortata;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }
