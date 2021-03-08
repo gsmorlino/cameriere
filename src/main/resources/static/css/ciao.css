@@ -1,0 +1,238 @@
+@charset "ISO-8859-1";
+
+.navbar{
+
+    height:60px;
+    padding:0 0;
+
+}
+
+.navbar-brand{
+    padding:0 0;
+
+}
+
+.col-md {
+
+    width:0%;
+    padding:0 0;
+    margin:10% 10%;
+}
+
+
+.btn-group {
+
+    margin-top:10px;
+    margin-left:15px;
+    width:150%;
+
+}
+
+h4 {
+    color:white;
+    text-align:center;
+    padding-top:10px;
+}
+
+.sfondo{
+    background-image: url("../img/sfondo.jpg");
+    background-size:cover;
+
+}
+
+.sfondoesterno {
+    background-image: url("../img/pizza.jpg");
+    background-size:cover;
+
+}
+
+.orologio {
+
+    position: absolute;
+    right: 10px;
+}
+
+.row {
+
+    padding-bottom: 0;
+}
+
+.dropdown-menu{
+
+    background-color: #343a40;
+}
+
+.dropdown-item {
+
+    color: #ffff;
+}
+
+#navbarDropdown {
+
+    color: #ffff;
+}
+
+.modal-content{
+
+    width:140%;
+}
+
+.modal-body  {
+
+
+    background-color: #343a40;
+}
+
+.modal-header{
+    width:100%;
+    background-color: #343a40;
+    border-color: #CCCCCC;
+    border-width:5px
+}
+
+.modal-footer{
+    width:100%;
+    background-color: #343a40;
+    border-color: #CCCCCC;
+    border-width:5px
+
+}
+
+.modal-dialog {
+    width:80%;
+    border-color: #CCCCCC;
+
+}
+
+.testomenu {
+
+    text-align:center;
+    font-size: 19px;
+    font-weight:bold;
+    color: white;
+}
+
+#list-antipasti, #list-pizze, #list-bevande, #list-dolci {
+
+    text-decoration: underline;
+}
+
+.list-group-item.list-group-item-action {
+
+    background-color: lightgray;
+    border-color: #CCCCCC;
+
+}
+
+.nav-item nav-link active, #nav-menu-tab, #nav-cliente-tab, #nav-ordine-tab, #nav-scontrino-tab {
+
+    background-color: lightgray;
+    border-color: #CCCCCC;
+
+}
+
+.modal-title {
+
+    color: white;
+}
+
+.close {
+
+    border-color: #CCCCCC;
+}
+
+hr {
+    border: 1px solid lightgray;
+    color: lightgray;
+}
+
+
+#tabellaincremento {
+    text-align:center;
+    margin-bottom:10px;
+}
+
+
+
+#numero {
+    display: inline-block;
+    border: solid white;
+    padding:0px 30px;
+
+}
+
+#conteggi {
+
+    margin-bottom: 0px;
+}
+
+#meno {
+    padding: 2px;
+    margin: 2px;
+    display: inline-block;
+
+
+}
+
+#tastomeno {
+
+    padding:2px 10px;
+    border-radius: 25px;
+
+}
+
+#piu {
+
+    padding: 2px;
+    margin: 2px;
+    display: inline-block;
+
+
+}
+
+#tastopiu {
+
+    padding:2px 10px;
+    border-radius: 25px;
+}
+
+.descrizione {
+    text-align:center;
+    font-size: 17px;
+    font-style:italic;
+    color:#ffff;
+}
+
+.btn.btn-primary.a-btn-slide-text {
+    display:block;
+    text-align:center;
+    margin-bottom:30px;
+
+}
+
+h3 {
+    color: white;
+}
+
+.totale {
+    text-align:right;
+}
+
+#tot {
+    width:130px;
+    text-align: right;
+}
+
+.menuordine {
+    font-size:20px;
+    color:white;
+}
+
+.col-sm-2 {
+    border-right: 2px solid gray;
+    border-left: 2px solid gray;
+}
+
+.gray {
+    background-color: grey;
+}
