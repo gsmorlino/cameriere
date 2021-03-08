@@ -24,6 +24,9 @@ public class Servizio {
     )
     public List<Cliente> gruppo;
 
+    @OneToMany(mappedBy = "servizio")
+    public List<Ordine> ordini;
+
 
 
     public int getId() {

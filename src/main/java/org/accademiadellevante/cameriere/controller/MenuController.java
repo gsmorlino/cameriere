@@ -20,4 +20,24 @@ public class MenuController {
         return piattoRepository.findAll();
 
     }
+    @GetMapping(path = "/antipasti")
+    public @ResponseBody List<Piatto> showAntipasto(){
+        return piattoRepository.getAntipasti();
+    }
+
+    @GetMapping(path = "/pizze")
+    public @ResponseBody List<Piatto> showPizza(){
+        return piattoRepository.getPizza();
+    }
+
+    @GetMapping(path = "/dolce")
+    public @ResponseBody List<Piatto> showDolce(){
+        return piattoRepository.getDolce();
+    }
+
+    @GetMapping(path = "/bevanda")
+    public @ResponseBody List<Piatto> showBevanda(){
+        return piattoRepository.getBevanda();
+    }
 }
+
