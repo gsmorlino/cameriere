@@ -22,20 +22,5 @@ public class HomePageController {
     {
         return "index";
     }
-    @GetMapping(path = "/tavoli")
-    public String getTavoli(Model model){
-        List<Tavolo> all = tavoloRepository.findAll();
-        //all.get(0).occupato=false;
-        model.addAttribute("numeroTavoli", tavoloRepository.count());
-        model.addAttribute( "tavoli", all);
-        return "tavoli";
-    }
-    @GetMapping(path = "/tavoliattiviJS")
-    public String getTavoliAttivi(Model model){
-        List<Tavolo> all = tavoloRepository.findAll();
-        //all.get(0).occupato=false;
-        model.addAttribute("numeroTavoli", tavoloRepository.count());
-        model.addAttribute( "tavoli", all);
-        return "tavoliattiviJS";
-    }
+
 }
