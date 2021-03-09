@@ -93,9 +93,9 @@ $(document).ready(function() {
 
     var ordine = [];
     var input = [{id: 1}, {id: 2}, {id: 3}];
-    var cliente = {"nome": "Lilla", "cognome": "Pasticcia", "cellulare":"3727472"}
+    var cliente = {"nome": "Lilla", "cognome": "Pasticcia", "cellulare":"3727472", "id_servizio": 1}
     var ordine_test = {"id_piatto": 6, "id_servizio":1, "quantita":2}
-    //aggiungiCliente(cliente);
+    aggiungiCliente(cliente);
     //aggiungiOrdine(ordine_test);
 
     aggiornaMappaTavoli();
@@ -289,7 +289,9 @@ function creaCategoriaMenu(listaPiatti)
 function creaTavolo(tavoloJSON)
 {
     var tavoloTemplate = [
-        '<div class="col-md">',
+        '<div id="tavolo',
+        tavoloJSON.id,
+        '" class="col-md">',
         '<img class="tavoli" src="resources/img/image.jpg">',
         '<div class="btn-group" role="group" aria-label="Third group">',
         '<button onclick="clickBottoneTavolo(this, ',

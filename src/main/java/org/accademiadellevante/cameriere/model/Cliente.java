@@ -1,12 +1,14 @@
 package org.accademiadellevante.cameriere.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column
@@ -17,6 +19,9 @@ public class Cliente {
 
     @Column
     private String cellulare;
+
+    @ManyToMany(mappedBy = "gruppo")
+    public List<Servizio> servizi = new ArrayList<>();
 
     public Integer getId() {
         return id;
