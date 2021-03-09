@@ -14,7 +14,7 @@ public class Tavolo {
     private String descrizione;
 
     @Column
-    private int posti;
+    private Integer posti;
 
     @ManyToOne
     @JoinColumn(name = "id_sala")
@@ -33,11 +33,11 @@ public class Tavolo {
         this.descrizione = descrizione;
     }
 
-    public int getPosti() {
+    public Integer getPosti() {
         return posti;
     }
 
-    public void setPosti(int posti) {
+    public void setPosti(Integer posti) {
         this.posti = posti;
     }
 

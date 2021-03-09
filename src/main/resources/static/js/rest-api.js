@@ -51,6 +51,28 @@ function getAntipasti() {
         $('#antipasti').append(creaCategoriaMenu(attivi));
     });
 }
+function getRest(url) {
+    return  $.ajax({
+        url: url,
+        async: false,
+        dataType: 'json'
+    }).responseJSON;
+}
+
+function getPizze()
+{
+    $('#pizze').append(creaCategoriaMenu(getRest('pizze')))
+}
+
+function getBevande()
+{
+    $('#bevande').append(creaCategoriaMenu(getRest('bevande')))
+}
+
+function getDolci()
+{
+    $('#dolci').append(creaCategoriaMenu(getRest('dolci')))
+}
 
 $(document).ready(function() {
 
@@ -63,6 +85,9 @@ $(document).ready(function() {
 
     aggiornaMappaTavoli();
     getAntipasti();
+    getPizze();
+    getBevande();
+    getDolci();
     //$('.container').eq(0).find('.col-md').eq(1).append($('#template-tavolo-singolo').html())
 
 

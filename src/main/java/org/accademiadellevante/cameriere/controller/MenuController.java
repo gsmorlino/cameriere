@@ -30,12 +30,12 @@ public class MenuController {
         return piattoRepository.getPizza();
     }
 
-    @GetMapping(path = "/dolce")
+    @GetMapping(path = "/dolci")
     public @ResponseBody List<Piatto> showDolce(){
         return piattoRepository.getDolce();
     }
 
-    @GetMapping(path = "/bevanda")
+    @GetMapping(path = "/bevande")
     public @ResponseBody List<Piatto> showBevanda(){
         return piattoRepository.getBevanda();
     }

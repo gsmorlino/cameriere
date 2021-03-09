@@ -138,10 +138,22 @@ function checkTime(i) {
                             </div>
                             <h4 id="list-pizze">Pizze</h4>
                             <hr>
+                            <div id="pizze">
 
+
+                            </div>
+
+                            <h4 id="list-dolci">Dolci</h4>
+                            <hr>
+                            <div id="dolci">
+
+                            </div>
 
                             <h4 id="list-bevande">Bevande</h4>
                             <hr>
+                            <div id="bevande">
+
+                            </div>
 
 
                         </div>
