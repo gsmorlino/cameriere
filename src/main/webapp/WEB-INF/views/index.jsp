@@ -143,15 +143,15 @@ function checkTime(i) {
 
                             </div>
 
-                            <h4 id="list-dolci">Dolci</h4>
-                            <hr>
-                            <div id="dolci">
-
-                            </div>
-
                             <h4 id="list-bevande">Bevande</h4>
                             <hr>
                             <div id="bevande">
+
+                            </div>
+
+                            <h4 id="list-dolci">Dolci</h4>
+                            <hr>
+                            <div id="dolci">
 
                             </div>
 
@@ -161,14 +161,6 @@ function checkTime(i) {
 
                     <!-- CONTENUTO ORDINE -->
                     <div class="tab-pane fade" id="nav-ordine" role="tabpanel" aria-labelledby="nav-ordine-tab">
-                        <div class="menuordine">
-                            <div class="row">
-                                <div  class="col-sm-7">Descrizione pizza</div> <div class="col-sm-2"> x 3 <button class="icons8-cestino"></button></div> <div class="col-sm-3">€ 5.50</div>
-
-                                <div class="col-sm-7">Descrizione pizza</div> <div class="col-sm-2"> x 3</div> <div class="col-sm-3">€ 5.50</div>
-
-                            </div>
-                        </div>
 
 
 

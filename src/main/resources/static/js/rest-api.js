@@ -110,6 +110,8 @@ function creaElencoOrdiniInCorso(ordini)
     let elenco_ordini = "";
     let totale = 0.0;
     console.log(ordini);
+    elenco_ordini = elenco_ordini.concat('<div class="menuordine">\n' +
+        '                            <div class="row">')
     for (let i in ordini)
     {
         console.log(ordini[i]);
@@ -120,6 +122,7 @@ function creaElencoOrdiniInCorso(ordini)
         totale += parseInt(piatto.prezzo) * parseInt(ordini[i].quantita);
         elenco_ordini = elenco_ordini.concat(creaOrdineInElenco(ordini[i], piatto));
     }
+    elenco_ordini = elenco_ordini.concat('</div></div>');
     let templateTotale = [
         '<div class="totale"><h3>Totale</h3>\n' +
         '                            <input type=text id=tot  value=',
@@ -127,7 +130,9 @@ function creaElencoOrdiniInCorso(ordini)
         '>\n' +
         '                        </div>'
     ]
-    $('#nav-ordine').append(templateTotale.join(''));
+
+    //$('#nav-ordine').append(templateTotale.join(''));
+    elenco_ordini = elenco_ordini.concat(templateTotale.join(''));
     return elenco_ordini;
 }
 function findById(list, id)
@@ -155,10 +160,29 @@ function creaOrdineInElenco(o, p)
     return templateOrdineInElenco.join('');
 }
 
+function cancellaElementoOrdine(id)
+{
+    removeItemOnce(ordine, findById(ordine, id));
+    aggiornaListaOrdini();
+}
+
+function removeItemOnce(arr, value) {
+    var index = arr.indexOf(value);
+    if (index > -1) {
+        arr.splice(index, 1);
+    }
+    return arr;
+}
+
+function aggiornaListaOrdini() {
+    $('#nav-ordine').empty();
+    $('#nav-ordine').append(creaElencoOrdiniInCorso(ordine));
+}
+
 function aggiungiAllOrdine(el, id, piattoId)
 {
 
-    k = -1;
+    let k = -1;
     for (let i in ordine)
     {
         if (ordine[i].id == id)
@@ -174,8 +198,7 @@ function aggiungiAllOrdine(el, id, piattoId)
     }
     else ordine.push({'id': id, "quantita":  parseInt(fieldQuant)});
 
-    $('.menuordine .row').empty();
-    $('.menuordine .row').append(creaElencoOrdiniInCorso(ordine));
+    aggiornaListaOrdini();
     $(piattoId).text(1);
 }
 
