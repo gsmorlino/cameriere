@@ -44,13 +44,13 @@ function getMenu() {
     }).responseJSON;
 }
 
-function getAntipasti() {
+/*function getAntipasti() {
     $.ajax({
         url: "antipasti"
     }).then(function (attivi) {
         $('#antipasti').append(creaCategoriaMenu(attivi));
     });
-}
+}*/
 function getRest(url) {
     return  $.ajax({
         url: url,
@@ -58,20 +58,35 @@ function getRest(url) {
         dataType: 'json'
     }).responseJSON;
 }
-
+function getAntipasti()
+{
+    $('#antipasti').empty();
+    $('#antipasti').append(creaCategoriaMenu(getRest('antipasti')))
+}
 function getPizze()
 {
+    $('#pizze').empty();
     $('#pizze').append(creaCategoriaMenu(getRest('pizze')))
 }
 
 function getBevande()
 {
+    $('#bevande').empty();
     $('#bevande').append(creaCategoriaMenu(getRest('bevande')))
 }
 
 function getDolci()
 {
+    $('#dolci').empty();
     $('#dolci').append(creaCategoriaMenu(getRest('dolci')))
+}
+
+function generaMenu() {
+
+    getAntipasti();
+    getPizze();
+    getBevande();
+    getDolci();
 }
 
 $(document).ready(function() {
@@ -84,10 +99,7 @@ $(document).ready(function() {
     //aggiungiOrdine(ordine_test);
 
     aggiornaMappaTavoli();
-    getAntipasti();
-    getPizze();
-    getBevande();
-    getDolci();
+    generaMenu();
     //$('.container').eq(0).find('.col-md').eq(1).append($('#template-tavolo-singolo').html())
 
 
@@ -99,6 +111,13 @@ function clickBottoneTavolo(elemn, id, posti)
     //elemn.style.color='blue';
     $('#exampleModalScrollableTitle').text('Tavolo '+id + ' (posti a sedere: ' +posti + ')');
     ordine = [];
+    aggiornaListaOrdini();
+    generaMenu();
+    /*
+    TODO
+        clienti
+        scontrino
+     */
 }
 
 
