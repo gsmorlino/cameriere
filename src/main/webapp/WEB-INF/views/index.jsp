@@ -154,7 +154,7 @@ function checkTime(i) {
                             <p class="descrizione"> Pomodoro, Fior di latte, Olio </p>
                             <div id="tabellaincremento">
                                 <form name="form1">
-                                    <div id="meno"><input type="button" id="tastomeno" name="bottone" value="-" onClick="javascript:diminuisci();"></div>
+                                    <div id="meno-1"><input type="button" id="tastomeno" name="bottone" value="-" onClick="javascript:diminuisci();"></div>
                                     <div id="numero"> <p id="conteggi" style="color:white">0</p></div>
                                     <div id="piu"><input type="button" id="tastopiu" name="bottone" value="+" onClick="javascript:contatore();"></div>
 
@@ -283,7 +283,7 @@ function checkTime(i) {
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="aggiornaMappaTavoli()">Chiudi</button>
                 <button type="button" class="btn btn-primary">Salva</button>
             </div>
         </div>

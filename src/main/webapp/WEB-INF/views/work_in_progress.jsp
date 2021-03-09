@@ -381,7 +381,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="aggiornaMappaTavoli()">Chiudi</button>
                 <button type="button" class="btn btn-primary">Salva</button>
             </div>
         </div>

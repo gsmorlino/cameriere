@@ -17,13 +17,18 @@ function aggiungiListaOrdini(ordini)
     ordini.forEach(el => aggiungiOrdine(el));
 }
 
-function aggiornaMappaTavoli() {
-    $.ajax({
-        url: "tavoli"
-    }).then(function (lista_tavoli) {
-        $('#mappa-tavoli').append(sistemaTavoli(lista_tavoli));
-    });
-}
+
+    function aggiornaMappaTavoli() {
+        $.ajax({
+            url: "tavoli"
+        }).then(function (lista_tavoli) {
+            $('#mappa-tavoli').empty();
+            $('#mappa-tavoli').append(sistemaTavoli(lista_tavoli));
+        });
+    }
+    aggiornaMappaTavoli();
+    setInterval(aggiornaMappaTavoli, 20*1000);
+
 
 $(document).ready(function() {
 
@@ -45,10 +50,10 @@ $(document).ready(function() {
 });
 
 
-function clickBottoneTavolo(elemn, id)
+function clickBottoneTavolo(elemn, id, posti)
 {
     //elemn.style.color='blue';
-    $('#exampleModalScrollableTitle').text('Tavolo '+id);
+    $('#exampleModalScrollableTitle').text('Tavolo '+id + ' (posti a sedere: ' +posti + ')');
     ordine = [];
 }
 
@@ -141,7 +146,7 @@ function creaTavolo(tavoloJSON)
         '<div class="btn-group" role="group" aria-label="Third group">',
         '<button onclick="clickBottoneTavolo(this, ',
         tavoloJSON.id || 'Cazzo',
-        ')" type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalScrollable">',
+        ', ', tavoloJSON.posti, ' ) " type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalScrollable">',
         tavoloJSON.id || 'Cazzo',
         '</button>',
         '</div>',

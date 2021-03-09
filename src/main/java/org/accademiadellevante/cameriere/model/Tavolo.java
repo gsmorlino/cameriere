@@ -13,6 +13,9 @@ public class Tavolo {
     @Column
     private String descrizione;
 
+    @Column
+    private int posti;
+
     @ManyToOne
     @JoinColumn(name = "id_sala")
     @JsonIgnoreProperties("tavoli")
@@ -28,6 +31,14 @@ public class Tavolo {
 
     public void setDescrizione(String descrizione) {
         this.descrizione = descrizione;
+    }
+
+    public int getPosti() {
+        return posti;
+    }
+
+    public void setPosti(int posti) {
+        this.posti = posti;
     }
 
 }
