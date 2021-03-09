@@ -127,8 +127,10 @@ function aggiungiAllOrdine(el, id, piattoId)
     else ordine.push({'id': id, "quantita":  parseInt(fieldQuant)});
 
     console.log(ordine);
-    //$('.menuordine .row')
+    $('.menuordine .row')
+    {
 
+    }
     $(piattoId).text(1);
 }
 
