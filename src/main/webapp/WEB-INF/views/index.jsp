@@ -133,108 +133,16 @@ function checkTime(i) {
                             <h4 id="list-antipasti">ANTIPASTI</h4>
                             <hr>
                             <div id="antipasti">
-                                <p class="testomenu">Frittura Mista (€ 7,00)</p>
-                                <a href="#" class="btn btn-primary a-btn-slide-text">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                    <span><strong>Add</strong></span>
-                                </a>
-                                <p class="testomenu">Patatine Fritte (€ 3,50)</p>
-                                <a href="#" class="btn btn-primary a-btn-slide-text">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                    <span><strong>Add</strong></span>
-                                </a>
-                                <p class="testomenu">Mozzarella in Carrozza (€ 3,50)</p>
-                                <a href="#" class="btn btn-primary a-btn-slide-text">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                    <span><strong>Add</strong></span>
-                                </a>
+
+
                             </div>
                             <h4 id="list-pizze">Pizze</h4>
                             <hr>
-                            <p class="testomenu"> Margherita (€ 3,00) </p>
-                            <p class="descrizione"> Pomodoro, Fior di latte, Olio </p>
-                            <div id="tabellaincremento">
-                                <form name="form1">
-                                    <div id="meno"><input type="button" id="tastomeno" name="bottone" value="-" onClick="javascript:diminuisci();"></div>
-                                    <div id="numero"> <p id="conteggi" style="color:white">0</p></div>
-                                    <div id="piu"><input type="button" id="tastopiu" name="bottone" value="+" onClick="javascript:contatore();"></div>
 
-                                </form>
-                            </div>
-
-                            <a href="#" class="btn btn-primary a-btn-slide-text">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <span><strong>Add</strong></span>
-                            </a>
-
-                            <p class="testomenu"> Salsiccia e Friarielli (€ 5,50)</p>
-                            <p class="descrizione"> Salsiccia, Friarielli, Fior di latte, Olio </p>
-
-                            <button id=meno onclick="getElementById('salsiccia').value=parseInt(getElementById('salsiccia').value)-1 ; if(getElementById('salsiccia').value==0){getElementById('meno').disabled=true;}">-</button>
-                            <input type=text id=salsiccia value=1 >
-                            <button onclick="getElementById('salsiccia').value=parseInt(getElementById('salsiccia').value)+1 ;if(getElementById('salsiccia').value>=0){getElementById('meno').disabled=false;}">+</button>
-
-                            <button class="btn btn-primary a-btn-slide-text" onclick="getElementById('tot').value = parseFloat(getElementById('tot').value) + parseFloat(getElementById('salsiccia').value)*5.50 ;">
-                                Add</button>
-
-
-                            <p class="testomenu"> Diavola (€ 5,00)</p>
-                            <p class="descrizione"> Salame piccante, Pomodoro, Fior di latte, Olio </p>
-                            <a href="#" class="btn btn-primary a-btn-slide-text">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <span><strong>Add</strong></span>
-                            </a>
-                            <p class="testomenu"> Mortadella e Pistacchio (€ 6,00)</p>
-                            <p class="descrizione"> Mortadella, Pistacchio, Fior di latte, Olio </p>
-                            <a href="#" class="btn btn-primary a-btn-slide-text">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <span><strong>Add</strong></span>
-                            </a>
 
                             <h4 id="list-bevande">Bevande</h4>
                             <hr>
-                            <p class="testomenu"> Birra Bionda 0,33cl (€ 2,50)</p>
-                            <p class="descrizione">Gusto Ricco e Distintivo</p>
-                            <a href="#" class="btn btn-primary a-btn-slide-text">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <span><strong>Add</strong></span>
-                            </a>
-                            <p class="testomenu"> Birra Rossa 0,33cl (€ 3,50)</p>
-                            <p class="descrizione">Gusto Corposo/p>
-                                <a href="#" class="btn btn-primary a-btn-slide-text">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                    <span><strong>Add</strong></span>
-                                </a>
-                            <p class="testomenu"> Coca-Cola 0,33cl (€ 2,00)</p>
-                            <a href="#" class="btn btn-primary a-btn-slide-text">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <span><strong>Add</strong></span>
-                            </a>
-                            <p class="testomenu"> Acqua Frizzante (€ 1,00)</p>
-                            <a href="#" class="btn btn-primary a-btn-slide-text">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <span><strong>Add</strong></span>
-                            </a>
-                            <p class="testomenu"> Acqua Naturale (€ 1,00)</p>
-                            <a href="#" class="btn btn-primary a-btn-slide-text">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <span><strong>Add</strong></span>
-                            </a>
 
-                            <h4 id="list-dolci">Dolci</h4>
-                            <hr>
-                            <p class="testomenu">Tortino Caldo (€ 4,00)</p>
-                            <p class="descrizione"> Cacao al 49%, cuore morbido e cremoso</p>
-                            <a href="#" class="btn btn-primary a-btn-slide-text">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <span><strong>Add</strong></span>
-                            </a>
-                            <p class="testomenu">Tiramisu del Bronte (€ 5,00)</p>
-                            <p class="descrizione"> Deliziosa crema al pistacchio</p>
-                            <a href="#" class="btn btn-primary a-btn-slide-text">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <span><strong>Add</strong></span>
-                            </a>
 
                         </div>
                     </div>
@@ -243,7 +151,7 @@ function checkTime(i) {
                     <div class="tab-pane fade" id="nav-ordine" role="tabpanel" aria-labelledby="nav-ordine-tab">
                         <div class="menuordine">
                             <div class="row">
-                                <div  class="col-sm-7">Descrizione pizza</div> <div class="col-sm-2"> x 3</div> <div class="col-sm-3">€ 5.50</div>
+                                <div  class="col-sm-7">Descrizione pizza</div> <div class="col-sm-2"> x 3 <button class="icons8-cestino"></button></div> <div class="col-sm-3">€ 5.50</div>
 
                                 <div class="col-sm-7">Descrizione pizza</div> <div class="col-sm-2"> x 3</div> <div class="col-sm-3">€ 5.50</div>
 
@@ -251,9 +159,7 @@ function checkTime(i) {
                         </div>
 
 
-                        <div class="totale"><h3>Totale</h3>
-                            <input type=text id=tot  value=0.00>
-                        </div>
+
 
                     </div>
 

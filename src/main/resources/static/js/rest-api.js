@@ -1,13 +1,6 @@
-function findById(list, id)
-{
-    for(var i = 0, len = list.length; i < len; i++)
-    {
-        if(list[i].id=id)
-        {
-            return list[i];
-        }
-    }
-}
+var lista_piatti = getMenu();
+
+
 
 
 
@@ -39,13 +32,11 @@ function aggiornaMappaTavoli() {
 }
 
 function getMenu() {
-    var tmp;
-    $.ajax({
-        url: "menu"
-    }).then(function (data) {
-        tmp = data;
-    });
-    return tmp;
+    return  $.ajax({
+        url: 'menu',
+        async: false,
+        dataType: 'json'
+    }).responseJSON;
 }
 
 function getAntipasti() {
@@ -64,7 +55,7 @@ $(document).ready(function() {
     var ordine_test = {"id_piatto": 6, "id_servizio":1, "quantita":2}
     //aggiungiCliente(cliente);
     //aggiungiOrdine(ordine_test);
-    var lista_piatti = getMenu();
+
     aggiornaMappaTavoli();
     getAntipasti();
     //$('.container').eq(0).find('.col-md').eq(1).append($('#template-tavolo-singolo').html())
@@ -86,22 +77,49 @@ function clickBottoneTavolo(elemn, id)
 
 function creaElencoOrdiniInCorso(ordini)
 {
-    var elenco_ordini = "";
+    let elenco_ordini = "";
     let totale = 0.0;
-    for (i in ordini)
+    console.log(ordini);
+    for (let i in ordini)
     {
-        elenco_ordini = elenco_ordini.concat(creaOrdineInElenco(ordini[i]));
+        console.log(ordini[i]);
+        let id_piatto = ordini[i].id;
+        console.log(ordini[i]);
+        let piatto = findById(lista_piatti, id_piatto);
+
+        totale += parseInt(piatto.prezzo) * parseInt(ordini[i].quantita);
+        elenco_ordini = elenco_ordini.concat(creaOrdineInElenco(ordini[i], piatto));
+    }
+    let templateTotale = [
+        '<div class="totale"><h3>Totale</h3>\n' +
+        '                            <input type=text id=tot  value=',
+        totale,
+        '>\n' +
+        '                        </div>'
+    ]
+    $('#nav-ordine').append(templateTotale.join(''));
+    return elenco_ordini;
+}
+function findById(list, id)
+{
+    for(let i in list)
+    {
+        if(list[i].id==id)
+        {
+            return list[i];
+        }
     }
 }
-
-function creaOrdineInElenco(o)
+function creaOrdineInElenco(o, p)
 {
     var templateOrdineInElenco = [
         '<div  class="col-sm-7">',
-        findById(lista_piatti, o.id).nome,'</div> <div class="col-sm-2"> x',
+        p.nome,'</div> <div class="col-sm-2"> x',
         o.quantita,
-        '</div> <div class="col-sm-3">€ ',
-        findById(lista_piatti, o.id).prezzo,
+        '<button onclick="cancellaElementoOrdine(',
+        o.id,
+        ')" class="icons8-cestino"></button></div> <div class="col-sm-3">€ ',
+        p.prezzo,
         '</div>'
     ];
     return templateOrdineInElenco.join('');
@@ -111,7 +129,7 @@ function aggiungiAllOrdine(el, id, piattoId)
 {
 
     k = -1;
-    for (i in ordine)
+    for (let i in ordine)
     {
         if (ordine[i].id == id)
         {
@@ -126,17 +144,13 @@ function aggiungiAllOrdine(el, id, piattoId)
     }
     else ordine.push({'id': id, "quantita":  parseInt(fieldQuant)});
 
-    console.log(ordine);
-    $('.menuordine .row')
-    {
-
-    }
+    $('.menuordine .row').empty();
+    $('.menuordine .row').append(creaElencoOrdiniInCorso(ordine));
     $(piattoId).text(1);
 }
 
 function modificaQuantita(el, id, variazione)
 {
-    //console.log($(id).text());
     let somma = parseInt($(id).text()) + variazione;
     if (somma >= 0)
         $(id).text(somma);
@@ -150,29 +164,29 @@ function creaPiatto(piattoJSON)
 
         '<p class="testomenu">',
         piattoJSON.nome,
-        '</p>\n' +
+        '</p>' +
         '  <p class="descrizione"> ',
         piattoJSON.descrizione,
-        '</p>\n' +
-        '   <div class="tabellaincremento">\n' +
-        '   \n' +
+        '</p>' +
+        '   <div class="tabellaincremento">' +
+        '   ' +
         '            <div class="meno"><input  type="button" class="tastomeno" name="bottone" value="-" onClick="modificaQuantita(this,',
                 piattoId ,
-        '        , -1)"></div>\n' +
-        '           <div class="numero"> <p id="',
+        '        , -1)"></div>' +
+        '           <div class="numero"> <p class="conteggi" id="',
         piattoId,
-        '" style="color:white">0</p></div>\n' +
+        '" style="color:white">1</p></div>' +
         '           <div class="piu"><input type="button" class="tastopiu" name="bottone" value="+" onclick="modificaQuantita(this,',
         piattoId,
-        ', 1)"></div>\n' +
+        ', 1)"></div>' +
         '             </div>',
         '<a href="#" class="btn btn-primary a-btn-slide-text" onclick="aggiungiAllOrdine(this, ',
         piattoJSON.id,
         ', ',
         piattoId,
-        ')">\n' +
-        '        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>\n' +
-        '        <span><strong>Add</strong></span>            \n' +
+        ')">' +
+        '        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>' +
+        '        <span><strong>Add</strong></span>            ' +
         '    </a>'
     ]
 
@@ -227,7 +241,7 @@ function sistemaTavoli(listaTavoli)
     k = 0;
     numCol = 4;
     numeroRighe = Math.floor(length/numCol) + 1;
-    console.log(numeroRighe);
+
     let out = '';
     out = out.concat('<div class="container">');
     for (i=0; i<numeroRighe; i++) {
@@ -235,7 +249,7 @@ function sistemaTavoli(listaTavoli)
         for (j = 0; j < numCol; j++) {
             if (k >= length) out = out.concat('<div class="col-md"></div>');
             else out = out.concat(creaTavolo(listaTavoli[k++]));
-            console.log(listaTavoli[k]);
+
         }
         out = out.concat('</div>');
     }
