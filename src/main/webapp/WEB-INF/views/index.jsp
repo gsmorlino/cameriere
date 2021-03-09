@@ -44,8 +44,8 @@ function startTime() {
   var h = today.getHours();
   var m = today.getMinutes();
   var s = today.getSeconds();
-  var giorno = today.getDay();
-  var mese = today.getMonth();
+  var giorno = today.getDate();//Day();
+  var mese = today.getMonth() + 1;
   var date= today.getDate();
   var year= today.getFullYear();
   // add a zero in front of numbers<10
