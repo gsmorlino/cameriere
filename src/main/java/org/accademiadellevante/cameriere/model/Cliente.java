@@ -7,42 +7,42 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     @Column
-    private String Nome;
+    private String nome;
 
     @Column
-    private String Cognome;
+    private String cognome;
 
     @Column
-    private String Cellulare;
+    private String cellulare;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public void setNome(String nome) {
-        Nome = nome;
+        this.nome = nome;
     }
 
     public String getCognome() {
-        return Cognome;
+        return cognome;
     }
 
     public void setCognome(String cognome) {
-        Cognome = cognome;
+        this.cognome = cognome;
     }
 
     public String getCellulare() {
-        return Cellulare;
+        return cellulare;
     }
 
     public void setCellulare(String cellulare) {
-        Cellulare = cellulare;
+        this.cellulare = cellulare;
     }
 }

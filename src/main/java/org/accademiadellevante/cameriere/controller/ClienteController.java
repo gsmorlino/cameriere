@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,7 +17,7 @@ public class ClienteController {
     @Autowired
     ClienteRepository clienteRepository;
 
-    @GetMapping(path = "/clienti")
+    @PostMapping(path = "/clienti")
     public @ResponseBody String addClienti(@RequestParam String nome, @RequestParam String cognome, @RequestParam String cellulare){
         Cliente cliente = new Cliente();
         cliente.setNome(nome);
@@ -28,7 +29,7 @@ public class ClienteController {
 
     }
 
-    @GetMapping(path = "/elencoclienti")
+    @GetMapping(path = "/clienti")
     public @ResponseBody Iterable<Cliente> getAllClienti(){
         return clienteRepository.findAll();
     }

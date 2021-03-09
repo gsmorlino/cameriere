@@ -1,3 +1,22 @@
+function aggiungiCliente(cliente)
+{
+    $.post( "clienti", cliente );
+}
+function aggiungiListaClienti(clienti)
+{
+    clienti.forEach(el => aggiungiCliente(el));
+}
+
+function aggiungiOrdine(ordine)
+{
+    $.post( "ordini", ordine );
+}
+
+function aggiungiListaOrdini(ordini)
+{
+    ordini.forEach(el => aggiungiOrdine(el));
+}
+
 function aggiornaMappaTavoli() {
     $.ajax({
         url: "tavoli"
@@ -10,7 +29,10 @@ $(document).ready(function() {
 
     var ordine = [];
     var input = [{id: 1}, {id: 2}, {id: 3}];
-    console.log("ciao");
+    var cliente = {"nome": "Lilla", "cognome": "Pasticcia", "cellulare":"3727472"}
+    var ordine_test = {"id_piatto": 6, "id_servizio":1, "quantita":2}
+    //aggiungiCliente(cliente);
+    //aggiungiOrdine(ordine_test);
     aggiornaMappaTavoli();
     $.ajax({
         url: "antipasti"
