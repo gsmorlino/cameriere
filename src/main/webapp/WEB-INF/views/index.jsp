@@ -132,22 +132,23 @@ function checkTime(i) {
                         <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
                             <h4 id="list-antipasti">ANTIPASTI</h4>
                             <hr>
-                            <p class="testomenu">Frittura Mista (€ 7,00)</p>
-                            <a href="#" class="btn btn-primary a-btn-slide-text">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <span><strong>Add</strong></span>
-                            </a>
-                            <p class="testomenu">Patatine Fritte (€ 3,50)</p>
-                            <a href="#" class="btn btn-primary a-btn-slide-text">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <span><strong>Add</strong></span>
-                            </a>
-                            <p class="testomenu">Mozzarella in Carrozza (€ 3,50)</p>
-                            <a href="#" class="btn btn-primary a-btn-slide-text">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <span><strong>Add</strong></span>
-                            </a>
-
+                            <div id="antipasti">
+                                <p class="testomenu">Frittura Mista (€ 7,00)</p>
+                                <a href="#" class="btn btn-primary a-btn-slide-text">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    <span><strong>Add</strong></span>
+                                </a>
+                                <p class="testomenu">Patatine Fritte (€ 3,50)</p>
+                                <a href="#" class="btn btn-primary a-btn-slide-text">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    <span><strong>Add</strong></span>
+                                </a>
+                                <p class="testomenu">Mozzarella in Carrozza (€ 3,50)</p>
+                                <a href="#" class="btn btn-primary a-btn-slide-text">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    <span><strong>Add</strong></span>
+                                </a>
+                            </div>
                             <h4 id="list-pizze">Pizze</h4>
                             <hr>
                             <p class="testomenu"> Margherita (€ 3,00) </p>
@@ -283,7 +284,7 @@ function checkTime(i) {
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" >Chiudi</button>
                 <button type="button" class="btn btn-primary">Salva</button>
             </div>
         </div>
