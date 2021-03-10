@@ -15,10 +15,10 @@ public class OrdineController {
     OrdineRepository ordineRepository;
 
     @PostMapping(path = "/ordini")
-    public @ResponseBody String addOrdine(@RequestParam int id_piatto, @RequestParam int id_servizio, @RequestParam int quantita){
+    public @ResponseBody String addOrdine(@RequestParam int id, @RequestParam int id_servizio, @RequestParam int quantita){
         Ordine ordine = new Ordine();
         ordine.setQuantita(quantita);
-        ordine.setId_piatto(id_piatto);
+        ordine.setId_piatto(id);
         ordine.setId_servizio(id_servizio);
         ordineRepository.save(ordine);
         return "Ordine registrato.";

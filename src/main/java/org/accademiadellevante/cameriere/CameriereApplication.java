@@ -10,7 +10,7 @@ public class CameriereApplication {
 
     public static void main(String[] args) throws IOException {
         SpringApplication.run(CameriereApplication.class, args);
-        openHomePage();
+        //openHomePage();
     }
 
     private static void openHomePage() throws IOException {
