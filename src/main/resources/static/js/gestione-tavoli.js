@@ -1,9 +1,15 @@
 function creaTavolo(tavoloJSON)
 {
+    let id_servizio = 1;
     var tavoloTemplate = [
         '<div id="tavolo',
         tavoloJSON.id,
         '" class="col-md">',
+        '<input id="servizio_tavolo',
+        tavoloJSON.id,
+        '" name="prodId" type="hidden" value="',
+        id_servizio,
+        '">',
         '<img class="tavoli" src="resources/img/image.jpg">',
         '<div class="btn-group" role="group" aria-label="Third group">',
         '<button onclick="clickBottoneTavolo(this, ',

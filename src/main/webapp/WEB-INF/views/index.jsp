@@ -173,18 +173,18 @@ function checkTime(i) {
 
                         <form>
                             <div class="form-group">
-                                <label for="formGroupExampleInput"></label>
-                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome">
+                                <label for="nome-cliente"></label>
+                                <input type="text" class="form-control" id="nome-cliente" placeholder="Nome">
                             </div>
                             <div class="form-group">
-                                <label for="formGroupExampleInput2"></label>
-                                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Cognome">
+                                <label for="cognome-cliente"></label>
+                                <input type="text" class="form-control" id="cognome-cliente" placeholder="Cognome">
                             </div>
                             <div class="form-group">
-                                <label for="formGroupExampleInput3"></label>
-                                <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Nunero Telefonico">
+                                <label for="telefono-cliente"></label>
+                                <input type="text" class="form-control" id="telefono-cliente" placeholder="Numero Telefonico">
                             </div>
-                            <button type="button" class="btn btn-primary">Aggiungi</button>
+                            <button onclick="clickBottoneCliente()" type="button" class="btn btn-primary">Aggiungi</button>
                         </form>
 
                     </div>
