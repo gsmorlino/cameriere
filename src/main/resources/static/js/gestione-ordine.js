@@ -3,6 +3,11 @@ function aggiungiOrdine(ordine)
     $.post( "ordini", ordine );
 }
 
+function aggiungiListaOrdini(ordini)
+{
+    ordini.forEach(el => aggiungiOrdine(el));
+}
+
 function creaOrdineInElenco(o, p)
 {
     var templateOrdineInElenco = [
@@ -11,7 +16,19 @@ function creaOrdineInElenco(o, p)
         o.quantita,
         '<button onclick="cancellaElementoOrdine(',
         o.id,
-        ')" class="icons8-cestino"></button></div> <div class="col-sm-3">€ ',
+        ')" class="icons8-cestino"></button>' +
+        '<div class="meno"><input  type="button" class="tastomeno" name="bottone" value="-" ' +
+        'onClick="modificaQuantitaOrdine(',
+        o.id,
+        ', ',
+        o.quantita,
+        ', -1)"></div>\n' +
+        '        <div class="piu"><input type="button" class="tastopiu" name="bottone" value="+" ' +
+        'onClick="modificaQuantitaOrdine(',
+        o.id,
+        ',',
+        o.quantita,
+        ', 1)"></div></div> <div class="col-sm-3">€ ',
         p.prezzo,
         '</div>'
     ];
@@ -46,21 +63,26 @@ function aggiungiAllOrdine(el, id, piattoId)
     {
         ordine[k].quantita=parseInt(ordine[k].quantita) + parseInt(fieldQuant);
     }
-    else ordine.push({'id': id, "quantita":  parseInt(fieldQuant)});
+    else ordine.push({'id': id, "quantita":  parseInt(fieldQuant), "id_servizio": 1});
 
     aggiornaListaOrdini();
     $(piattoId).text(1);
 }
 
-function aggiungiListaOrdini(ordini)
-{
-    ordini.forEach(el => aggiungiOrdine(el));
-}
 
+function modificaQuantitaOrdine(el, quant, variazione)
+{
+    let somma = parseInt(quant) + variazione;
+    //let i = ordine.indexOf(el);
+    console.log(el);
+    if (somma >= 1)
+        findById(ordine, el).quantita=somma;
+    aggiornaListaOrdini();
+}
 function modificaQuantita(el, id, variazione)
 {
     let somma = parseInt($(id).text()) + variazione;
-    if (somma >= 0)
+    if (somma >= 1)
         $(id).text(somma);
 }
 
@@ -73,9 +95,9 @@ function creaElencoOrdiniInCorso(ordini)
         '                            <div class="row">')
     for (let i in ordini)
     {
-        console.log(ordini[i]);
+        //console.log(ordini[i]);
         let id_piatto = ordini[i].id;
-        console.log(ordini[i]);
+        //console.log(ordini[i]);
         let piatto = findById(lista_piatti, id_piatto);
 
         totale += parseInt(piatto.prezzo) * parseInt(ordini[i].quantita);
@@ -87,10 +109,17 @@ function creaElencoOrdiniInCorso(ordini)
         '                            <input type=text id=tot  value=',
         totale,
         '>\n' +
-        '                        </div>'
+        '                        </div>',
+        '<div id="inviaordine"><button type="button" class="btn btn-primary" onclick="inviaOrdine()">Invia Ordine</button> </div>'
     ]
 
     //$('#nav-ordine').append(templateTotale.join(''));
     elenco_ordini = elenco_ordini.concat(templateTotale.join(''));
     return elenco_ordini;
+}
+
+function inviaOrdine()
+{
+    if (ordine.length>0)
+        aggiungiListaOrdini(ordine);
 }
