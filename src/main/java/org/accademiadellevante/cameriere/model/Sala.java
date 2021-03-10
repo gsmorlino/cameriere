@@ -8,6 +8,10 @@ import java.util.List;
 @Entity
 public class Sala {
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
