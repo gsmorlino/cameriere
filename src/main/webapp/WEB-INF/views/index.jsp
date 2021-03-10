@@ -101,7 +101,7 @@ function checkTime(i) {
 
 <!-- TABELLA SERVIZI TAVOLO -->
 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-dialog modal-dialog-scrollable-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalScrollableTitle">Tavolo 1</h5>
@@ -216,6 +216,11 @@ function checkTime(i) {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/resources/js/bootstrap.bundle.min.js"></script>
+<script src="/resources/js/gestione-tavoli.js"></script>
+<script src="/resources/js/gestione-menu.js"></script>
+<script src="/resources/js/gestione-ordine.js"></script>
+<script src="/resources/js/gestione-cliente.js"></script>
 <script src="/resources/js/rest-api.js"></script>
+
 </body>
 </html>
