@@ -51,13 +51,13 @@ function creaPiatto(piattoJSON)
         '</p>' +
         '   <div class="tabellaincremento">' +
         '   ' +
-        '            <div class="meno"><input  type="button" class="tastomeno" name="bottone" value="-" onClick="modificaQuantita(this,',
+        '            <div class="meno"><input  type="button" class="bi bi-dash-circle-fill" name="bottone" value="-" onClick="modificaQuantita(this,',
         piattoId ,
         '        , -1)"></div>' +
         '           <div class="numero"> <p class="conteggi" id="',
         piattoId,
         '" style="color:white">1</p></div>' +
-        '           <div class="piu"><input type="button" class="tastopiu" name="bottone" value="+" onclick="modificaQuantita(this,',
+        '           <div class="piu"><input type="button" class="bi bi-plus-circle-fill" name="bottone" value="+" onclick="modificaQuantita(this,',
         piattoId,
         ', 1)"></div>' +
         '             </div>',
