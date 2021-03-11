@@ -1,27 +1,53 @@
-function creaTavolo(tavoloJSON)
+function creaTavolo(tavoloJSON, id_servizio)
 {
-    let id_servizio = 1;
-    var tavoloTemplate = [
-        '<div id="tavolo',
-        tavoloJSON.id,
-        '" class="col-md">',
-        '<input id="servizio_tavolo',
-        tavoloJSON.id,
-        '" name="prodId" type="hidden" value="',
-        id_servizio,
-        '">',
-        '<img class="tavoli" src="resources/img/image.jpg">',
-        '<div class="btn-group" role="group" aria-label="Third group">',
-        '<button onclick="clickBottoneTavolo(this, ',
-        tavoloJSON.id || 'Cazzo',
-        ', ', tavoloJSON.posti, ' ) " type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalScrollable">',
-        tavoloJSON.id || 'Cazzo',
-        '<br> (Posti: ',
-        tavoloJSON.posti,
-        ')</button>',
-        '</div>',
-        '</div>'
-    ]
+    let tavoloTemplate = [];
+    if (id_servizio===null)
+    {
+        tavoloTemplate = [
+            '<div id="tavolo',
+            tavoloJSON.id,
+            '" class="col-md">',
+            '<input id="servizio_tavolo',
+            tavoloJSON.id,
+            '" name="prodId" type="hidden" value="',
+            '">',
+            '<img class="tavoli" src="resources/img/image.jpg">',
+            '<div class="btn-group" role="group" aria-label="Third group">',
+            '<button onclick="clickBottoneTavoloLibero(this, ',
+            tavoloJSON.id || 'Cazzo',
+            ', ', tavoloJSON.posti, ' ) " type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">',
+            tavoloJSON.id || 'Cazzo',
+            '<br> (Posti: ',
+            tavoloJSON.posti,
+            ')</button>',
+            '</div>',
+            '</div>'
+        ]
+    }
+    else
+    {
+        tavoloTemplate = [
+            '<div id="tavolo',
+            tavoloJSON.id,
+            '" class="col-md">',
+            '<input id="servizio_tavolo',
+            tavoloJSON.id,
+            '" name="prodId" type="hidden" value="',
+            id_servizio,
+            '">',
+            '<img class="tavoli" src="resources/img/image.jpg">',
+            '<div class="btn-group" role="group" aria-label="Third group">',
+            '<button onclick="clickBottoneTavolo(this, ',
+            tavoloJSON.id || 'Cazzo',
+            ', ', tavoloJSON.posti, ' ) " type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalScrollable">',
+            tavoloJSON.id || 'Cazzo',
+            '<br> (Posti: ',
+            tavoloJSON.posti,
+            ')</button>',
+            '</div>',
+            '</div>'
+        ]
+    }
     return tavoloTemplate.join('');
 }
 
@@ -30,6 +56,7 @@ function clickBottoneTavolo(elemn, id, posti)
     //elemn.style.color='blue';
     $('#exampleModalScrollableTitle').text('Tavolo '+id + ' (posti a sedere: ' +posti + ')');
     ordine = [];
+    id_servizio = servizioAssociatoAlTavolo(getAttivi(), id);
     aggiornaListaOrdini();
     generaMenu();
     svuotaCliente()
@@ -39,25 +66,37 @@ function clickBottoneTavolo(elemn, id, posti)
      */
 }
 
+function clickBottoneTavoloLibero(elemn, id, posti)
+{
+    //elemn.style.color='blue';
+    $('#exampleModalLabel').text('Tavolo '+id + ' (posti a sedere: ' +posti + ')');
+}
+
 
 /*
 Accetta un JSON di tavoli e genera un container con i tavoli
  */
-function sistemaTavoli(listaTavoli)
+function sistemaTavoli(listaTavoli, listaAttivi)
 {
-    length = listaTavoli.length;
+    let length = listaTavoli.length;
 
-    k = 0;
-    numCol = 4;
-    numeroRighe = Math.floor(length/numCol) + 1;
+    let k = 0;
+    let numCol = 4;
+    let numeroRighe = Math.ceil(length/numCol);
 
     let out = '';
     out = out.concat('<div class="container">');
     for (i=0; i<numeroRighe; i++) {
-        out = out.concat('<div class="row">');
+        out = out.concat('<div class="row rigatavoli">');
         for (j = 0; j < numCol; j++) {
             if (k >= length) out = out.concat('<div class="col-md"></div>');
-            else out = out.concat(creaTavolo(listaTavoli[k++]));
+            else
+            {
+                let id_serv = servizioAssociatoAlTavolo(listaAttivi, listaTavoli[k].id);
+
+                out = out.concat(creaTavolo(listaTavoli[k++], id_serv));
+
+            }
 
         }
         out = out.concat('</div>');
@@ -66,13 +105,27 @@ function sistemaTavoli(listaTavoli)
     return $(out);
 }
 
+function servizioAssociatoAlTavolo(list, id)
+{
+    for(let i in list)
+    {
+        if(list[i].id_tavolo===id)
+        {
+            return list[i].id_servizio;
+        }
+    }
+    return null;
+}
+
+function getAttivi() {
+    return getRest('tavoliattivi');
+}
+
 function aggiornaMappaTavoli() {
-    $.ajax({
-        url: "tavoli"
-    }).then(function (lista_tavoli) {
-        $('#mappa-tavoli').empty();
-        $('#mappa-tavoli').append(sistemaTavoli(lista_tavoli));
-    });
+    let tavoli = getRest('tavoli');
+    let attivi = getAttivi();
+    $('#mappa-tavoli').empty();
+    $('#mappa-tavoli').append(sistemaTavoli(tavoli, attivi));
 }
 
 

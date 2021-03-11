@@ -31,12 +31,9 @@ public class TavoloController {
     }
 
     @GetMapping(path = "/tavoliattivi")
-    public String getTavoliAttivi(Model model){
-        List<Tavolo> all = tavoloRepository.findAll();
-        //all.get(0).occupato=false;
-        model.addAttribute("numeroTavoli", tavoloRepository.count());
-        model.addAttribute( "tavoli", all);
-        return "tavoliattiviJS";
+    public List<TavoloAttivo> getTavoliAttivi(Model model){
+        return tavoloAttivoRepository.findAll();
+
     }
 
     @GetMapping(path = "/tavolisalainterna")

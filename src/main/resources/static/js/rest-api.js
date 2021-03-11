@@ -15,6 +15,7 @@ function findById(list, id)
             return list[i];
         }
     }
+    return null;
 }
 
 function removeItemOnce(arr, value) {

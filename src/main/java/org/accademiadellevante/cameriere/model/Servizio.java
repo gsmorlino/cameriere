@@ -7,6 +7,10 @@ import java.util.List;
 @Entity
 public class Servizio {
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

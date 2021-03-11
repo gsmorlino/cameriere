@@ -1,5 +1,7 @@
 package org.accademiadellevante.cameriere.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -29,10 +31,12 @@ public class TavoloAttivo {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tavolo", insertable = false, updatable = false)
+    @JsonIgnore
     public Tavolo tavolo;
 
     @OneToOne
     @JoinColumn(name = "id_servizio", insertable = false, updatable = false)
+    @JsonIgnore
     public Servizio servizio;
 }
 

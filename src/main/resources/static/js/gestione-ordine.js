@@ -44,6 +44,9 @@ function cancellaElementoOrdine(id)
 function aggiornaListaOrdini() {
     $('#elenco-ordini').empty();
     $('#elenco-ordini').append(creaElencoOrdiniInCorso(ordine));
+    getOrdiniInviati();
+    $('#elenco-ordini-inviati').empty();
+    $('#elenco-ordini-inviati').append(creaElencoOrdiniInviati(ordini_inviati));
 }
 
 function aggiungiAllOrdine(el, id, piattoId)
@@ -63,7 +66,10 @@ function aggiungiAllOrdine(el, id, piattoId)
     {
         ordine[k].quantita=parseInt(ordine[k].quantita) + parseInt(fieldQuant);
     }
-    else ordine.push({'id': id, "quantita":  parseInt(fieldQuant), "id_servizio": 1});
+    else {
+        console.log(id_servizio);
+        ordine.push({'id': id, "quantita":  parseInt(fieldQuant), "id_servizio": id_servizio});
+    }
 
     aggiornaListaOrdini();
     $(piattoId).text(1);
@@ -104,17 +110,19 @@ function creaElencoOrdiniInCorso(ordini)
         elenco_ordini = elenco_ordini.concat(creaOrdineInElenco(ordini[i], piatto));
     }
     elenco_ordini = elenco_ordini.concat('</div></div>');
-    let templateTotale = [
-        '<div class="totale"><h3>Totale</h3>\n' +
-        '                            <input type=text id=tot  value=',
-        totale,
-        '>\n' +
-        '                        </div>',
-        '<div id="inviaordine"><button type="button" class="btn btn-primary" onclick="inviaOrdine()">Invia Ordine</button> </div>'
-    ]
+    if (ordini.length!==0) {
+        let templateTotale = [
+            '<div class="totale"><h3>Totale</h3>\n' +
+            '                            <input type=text class=tot  value=',
+            totale,
+            '>\n' +
+            '                        </div>',
+            '<div id="inviaordine"><button type="button" class="btn btn-primary" onclick="inviaOrdine()">Invia Ordine</button> </div>'
+        ]
 
-    //$('#nav-ordine').append(templateTotale.join(''));
-    elenco_ordini = elenco_ordini.concat(templateTotale.join(''));
+        //$('#nav-ordine').append(templateTotale.join(''));
+        elenco_ordini = elenco_ordini.concat(templateTotale.join(''));
+    }
     return elenco_ordini;
 }
 
@@ -123,6 +131,7 @@ function inviaOrdine()
     if (ordine.length>0)
     {
         $('#inviaordine').removeClass('bordo-rosso');
+        console.log(ordine);
         aggiungiListaOrdini(ordine);
         $('#nav-ordine').append('<div id="ordine-successo" class="box-not successo"><span>Ordine salvato con successo! </span></div>\n' +
             '  </div>');
@@ -134,4 +143,54 @@ function inviaOrdine()
             '  </div>');
         $('#ordine-errore').delay(3000).fadeOut();
     }
+}
+
+function getOrdiniInviati()
+{
+    ordini_inviati = getRest('ordini?id='+id_servizio);
+    console.log(ordini_inviati);
+}
+
+function creaElencoOrdiniInviati(ordinelli)
+{
+    let elenco_ordini_inviati = "";
+    let totale = 0.0;
+    console.log(ordinelli);
+    elenco_ordini_inviati = elenco_ordini_inviati.concat('<div class="menuordine">\n' +
+        '                            <div class="row">')
+    for (let i in ordinelli)
+    {
+        //console.log(ordini[i]);
+        let id_piatto = ordinelli[i].id_piatto;
+        //console.log(ordini[i]);
+        let piatto = findById(lista_piatti, id_piatto);
+
+        totale += parseFloat(piatto.prezzo) * parseInt(ordinelli[i].quantita);
+        elenco_ordini_inviati = elenco_ordini_inviati.concat(creaOrdineInElencoInviati(ordinelli[i], piatto));
+    }
+    elenco_ordini_inviati = elenco_ordini_inviati.concat('</div></div>');
+    let templateTotale = [
+        '<div class="totale"><h3>Totale</h3>\n' +
+        '                            <input type=text class=tot  value=',
+        totale,
+        '>\n' +
+        '                        </div>'
+    ]
+
+    //$('#nav-ordine').append(templateTotale.join(''));
+    elenco_ordini_inviati = elenco_ordini_inviati.concat(templateTotale.join(''));
+    return elenco_ordini_inviati;
+}
+
+function creaOrdineInElencoInviati(o, p)
+{
+    var templateOrdineInElenco = [
+        '<div  class="col-sm-6">',
+        p.nome,'</div> <div class="col-sm-4"> x',
+        o.quantita,
+        '</div><div class="col-sm-2">€ ',
+        parseFloat(p.prezzo) * parseInt(o.quantita),
+        '</div>'
+    ];
+    return templateOrdineInElenco.join('');
 }

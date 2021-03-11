@@ -167,6 +167,10 @@
                         <div id="elenco-ordini">
 
                         </div>
+
+                        <div id="elenco-ordini-inviati">
+
+                        </div>
                     </div>
 
 
@@ -196,7 +200,7 @@
                     <div class="tab-pane fade" id="nav-scontrino" role="tabpanel" aria-labelledby="nav-scontrino-tab">
 
                         <div id="scontrino">
-                            <button onclick="location.href='scontrino'" type="button" class="btn btn-primary"
+                            <button onclick="location.href='scontrino?id=1'" type="button" class="btn btn-primary"
                                     id="stampascontrino">&#x1f5b6 Stampa scontrino
                             </button>
                         </div>
@@ -210,6 +214,29 @@
 
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
 
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal OCCUPA TAVOLO-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div id="occupatavolo">
+                    <button type="button" class="btn btn-primary"  id="tastooccupatavolo"> Occupa tavolo </button>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
             </div>
         </div>
     </div>
