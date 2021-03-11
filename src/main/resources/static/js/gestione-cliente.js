@@ -19,7 +19,7 @@ function clickBottoneCliente()
         });
         $('#nav-cliente').append('<div id="cliente-errore" class="box-not errore"><span>Il numero di cellulare è necessario!</span></div>\n' +
             '  </div>');
-        $('#cliente-errore').delay(3000).fadeOut();
+        $('#cliente-errore').delay(2000).fadeOut();
         //$('#telefono-cliente').delay(3000).removeClass('bordo-rosso');
     }
     else

@@ -35,7 +35,7 @@ $(document).ready(function() {
     //aggiungiOrdine(ordine_test);
 
     lista_piatti = getMenu();
-    setInterval(aggiornaMappaTavoli, 30*1000);
+    setInterval(aggiornaMappaTavoli, 10*1000);
     aggiornaMappaTavoli();
     generaMenu();
 });

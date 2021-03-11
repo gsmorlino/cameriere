@@ -184,7 +184,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="telefono-cliente"></label>
-                                <input type="text" class="form-control" id="telefono-cliente"
+                                <input required="true" type="text" class="form-control" id="telefono-cliente"
                                        placeholder="Numero Telefonico">
                             </div>
                             <button id="aggiungiCliente" onclick="clickBottoneCliente()" type="button" class="btn btn-primary">Aggiungi

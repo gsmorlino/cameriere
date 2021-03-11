@@ -29,7 +29,7 @@ function creaOrdineInElenco(o, p)
         ',',
         o.quantita,
         ', 1)"></div></div> <div class="col-sm-2">€ ',
-        p.prezzo,
+        parseFloat(p.prezzo) * parseInt(o.quantita),
         '</div>'
     ];
     return templateOrdineInElenco.join('');
@@ -100,7 +100,7 @@ function creaElencoOrdiniInCorso(ordini)
         //console.log(ordini[i]);
         let piatto = findById(lista_piatti, id_piatto);
 
-        totale += parseInt(piatto.prezzo) * parseInt(ordini[i].quantita);
+        totale += parseFloat(piatto.prezzo) * parseInt(ordini[i].quantita);
         elenco_ordini = elenco_ordini.concat(creaOrdineInElenco(ordini[i], piatto));
     }
     elenco_ordini = elenco_ordini.concat('</div></div>');

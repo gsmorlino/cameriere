@@ -45,7 +45,9 @@ function creaPiatto(piattoJSON)
 
         '<p class="testomenu">',
         piattoJSON.nome,
-        '</p>' +
+        ' (€ ',
+        piattoJSON.prezzo,
+        ')</p>' +
         '  <p class="descrizione"> ',
         piattoJSON.descrizione,
         '</p>' +
