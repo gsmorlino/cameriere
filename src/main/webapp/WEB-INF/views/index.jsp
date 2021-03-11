@@ -87,7 +87,7 @@
 
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="SalaEsterna.jsp">Sala Esterna <span class="sr-only"></span></a>
+                    <a class="nav-link" href="salaEsterna">Sala Esterna <span class="sr-only"></span></a>
                 </li>
 
             </ul>
@@ -196,7 +196,7 @@
                     <div class="tab-pane fade" id="nav-scontrino" role="tabpanel" aria-labelledby="nav-scontrino-tab">
 
                         <div id="scontrino">
-                            <button onclick="location.href='scontrino.jsp'" type="button" class="btn btn-primary"
+                            <button onclick="location.href='scontrino'" type="button" class="btn btn-primary"
                                     id="stampascontrino">&#x1f5b6 Stampa scontrino
                             </button>
                         </div>

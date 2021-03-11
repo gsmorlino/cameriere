@@ -23,4 +23,17 @@ public class HomePageController {
         return "index";
     }
 
+
+    @GetMapping(path = "/scontrino")
+    public String getScontrino()
+    {
+        return "scontrino";
+    }
+
+    @GetMapping(path = "/salaEsterna")
+    public String getSalaEsterna()
+    {
+        return "sala_esterna";
+    }
+
 }
