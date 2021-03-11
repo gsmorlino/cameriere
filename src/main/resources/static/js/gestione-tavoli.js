@@ -16,7 +16,9 @@ function creaTavolo(tavoloJSON)
         tavoloJSON.id || 'Cazzo',
         ', ', tavoloJSON.posti, ' ) " type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalScrollable">',
         tavoloJSON.id || 'Cazzo',
-        '</button>',
+        '<br> (Posti: ',
+        tavoloJSON.posti,
+        ')</button>',
         '</div>',
         '</div>'
     ]
@@ -30,9 +32,9 @@ function clickBottoneTavolo(elemn, id, posti)
     ordine = [];
     aggiornaListaOrdini();
     generaMenu();
+    svuotaCliente()
     /*
     TODO
-        clienti
         scontrino
      */
 }

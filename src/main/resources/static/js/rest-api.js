@@ -25,7 +25,6 @@ function removeItemOnce(arr, value) {
     return arr;
 }
 
-
 $(document).ready(function() {
 
     ordine = [];

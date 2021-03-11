@@ -11,8 +11,8 @@ function aggiungiListaOrdini(ordini)
 function creaOrdineInElenco(o, p)
 {
     var templateOrdineInElenco = [
-        '<div  class="col-sm-7">',
-        p.nome,'</div> <div class="col-sm-2"> x',
+        '<div  class="col-sm-6">',
+        p.nome,'</div> <div class="col-sm-4"> x',
         o.quantita,
         '<button onclick="cancellaElementoOrdine(',
         o.id,
@@ -28,7 +28,7 @@ function creaOrdineInElenco(o, p)
         o.id,
         ',',
         o.quantita,
-        ', 1)"></div></div> <div class="col-sm-3">€ ',
+        ', 1)"></div></div> <div class="col-sm-2">€ ',
         p.prezzo,
         '</div>'
     ];
@@ -42,8 +42,8 @@ function cancellaElementoOrdine(id)
 }
 
 function aggiornaListaOrdini() {
-    $('#nav-ordine').empty();
-    $('#nav-ordine').append(creaElencoOrdiniInCorso(ordine));
+    $('#elenco-ordini').empty();
+    $('#elenco-ordini').append(creaElencoOrdiniInCorso(ordine));
 }
 
 function aggiungiAllOrdine(el, id, piattoId)
@@ -121,5 +121,17 @@ function creaElencoOrdiniInCorso(ordini)
 function inviaOrdine()
 {
     if (ordine.length>0)
+    {
+        $('#inviaordine').removeClass('bordo-rosso');
         aggiungiListaOrdini(ordine);
+        $('#nav-ordine').append('<div id="ordine-successo" class="box-not successo"><span>Ordine salvato con successo! </span></div>\n' +
+            '  </div>');
+        $('#ordine-successo').delay(3000).fadeOut();
+    }
+    else
+    {
+        $('#nav-ordine').append('<div id="ordine-errore" class="box-not errore"><span>L\'ordine è vuoto!</span></div>\n' +
+            '  </div>');
+        $('#ordine-errore').delay(3000).fadeOut();
+    }
 }
