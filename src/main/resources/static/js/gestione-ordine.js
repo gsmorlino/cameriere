@@ -17,13 +17,13 @@ function creaOrdineInElenco(o, p)
         '<button onclick="cancellaElementoOrdine(',
         o.id,
         ')" class="icons8-cestino"></button>' +
-        '<div class="meno"><input  type="button" class="tastomeno" name="bottone" value="-" ' +
+        '<div class="meno"><input  type="button" class="bi bi-dash-circle-fill" id="bottone-ordine" name="bottone" value="-" ' +
         'onClick="modificaQuantitaOrdine(',
         o.id,
         ', ',
         o.quantita,
         ', -1)"></div>\n' +
-        '        <div class="piu"><input type="button" class="tastopiu" name="bottone" value="+" ' +
+        '        <div class="piu"><input type="button" class="bi bi-dash-circle-fill" id="bottone-ordine" name="bottone" value="+" ' +
         'onClick="modificaQuantitaOrdine(',
         o.id,
         ',',
