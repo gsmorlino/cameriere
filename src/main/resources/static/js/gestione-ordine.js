@@ -94,10 +94,11 @@ function modificaQuantita(el, id, variazione)
 
 function creaElencoOrdiniInCorso(ordini)
 {
+    if (ordini.length===0) return "";
     let elenco_ordini = "";
     let totale = 0.0;
     console.log(ordini);
-    elenco_ordini = elenco_ordini.concat('<div class="menuordine">\n' +
+    elenco_ordini = elenco_ordini.concat('<h6>Ordine In Corso</h6><div class="menuordine">\n' +
         '                            <div class="row">')
     for (let i in ordini)
     {
@@ -113,7 +114,7 @@ function creaElencoOrdiniInCorso(ordini)
     if (ordini.length!==0) {
         let templateTotale = [
             '<div class="totale"><h3>Totale</h3>\n' +
-            '                            <input type=text class=tot  value=',
+            '                            <input readonly="text" class=tot  value=',
             totale,
             '>\n' +
             '                        </div>',
@@ -123,6 +124,7 @@ function creaElencoOrdiniInCorso(ordini)
         //$('#nav-ordine').append(templateTotale.join(''));
         elenco_ordini = elenco_ordini.concat(templateTotale.join(''));
     }
+
     return elenco_ordini;
 }
 
@@ -130,19 +132,20 @@ function inviaOrdine()
 {
     if (ordine.length>0)
     {
-        $('#inviaordine').removeClass('bordo-rosso');
-        console.log(ordine);
         aggiungiListaOrdini(ordine);
-        $('#nav-ordine').append('<div id="ordine-successo" class="box-not successo"><span>Ordine salvato con successo! </span></div>\n' +
+        ordine = [];
+        $('#nav-ordine').prepend('<div id="ordine-successo" class="box-not successo"><span>Ordine salvato con successo! </span></div>\n' +
             '  </div>');
         $('#ordine-successo').delay(3000).fadeOut();
     }
     else
     {
-        $('#nav-ordine').append('<div id="ordine-errore" class="box-not errore"><span>L\'ordine è vuoto!</span></div>\n' +
+        $('#nav-ordine').prepend('<div id="ordine-errore" class="box-not errore"><span>L\'ordine è vuoto!</span></div>\n' +
             '  </div>');
         $('#ordine-errore').delay(3000).fadeOut();
     }
+    setTimeout(aggiornaListaOrdini(), 5000);
+
 }
 
 function getOrdiniInviati()
@@ -153,11 +156,14 @@ function getOrdiniInviati()
 
 function creaElencoOrdiniInviati(ordinelli)
 {
+    if (ordinelli.length===0) return "";
     let elenco_ordini_inviati = "";
+
     let totale = 0.0;
     console.log(ordinelli);
-    elenco_ordini_inviati = elenco_ordini_inviati.concat('<div class="menuordine">\n' +
-        '                            <div class="row">')
+    elenco_ordini_inviati = elenco_ordini_inviati.concat('<h6>Ordine Inviato</h6>\n' +
+        '        <div class="menuordine">\n' +
+        '                            <div class="row sec">')
     for (let i in ordinelli)
     {
         //console.log(ordini[i]);
@@ -171,7 +177,7 @@ function creaElencoOrdiniInviati(ordinelli)
     elenco_ordini_inviati = elenco_ordini_inviati.concat('</div></div>');
     let templateTotale = [
         '<div class="totale"><h3>Totale</h3>\n' +
-        '                            <input type=text class=tot  value=',
+        '                            <input readonly="text" class=tot  value=',
         totale,
         '>\n' +
         '                        </div>'

@@ -1,5 +1,11 @@
+<%@ page import="org.accademiadellevante.cameriere.model.Ordine" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="org.accademiadellevante.cameriere.model.Piatto" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; utf-8"
-    pageEncoding="utf-8"%>
+		 pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,55 +50,53 @@
 								<td class="Hours"><h2>Quantità</h2></td>
 								<td class="Rate"><h2>Euro</h2></td>
 							</tr>
-
+							<%!
+								public HashMap<Integer, Piatto> generaMappaPiatti(ArrayList<Piatto> piatti)
+								{
+									HashMap<Integer, Piatto> out = new HashMap<>();
+									for (Piatto p: piatti)
+									{
+										out.put(p.getId(), p);
+									}
+									return out;
+								}
+							%>
+<%
+	List<Ordine> ordini = (List<Ordine>) request.getAttribute("lista-ordini");
+	HashMap<Integer, Piatto> piatti = generaMappaPiatti((ArrayList<Piatto>) request.getAttribute("piatti"));
+	%>
+							<%double totale = 0.0; %>
+							<% java.util.Formatter formatter2 = new java.util.Formatter();
+								for (Ordine o: ordini){
+								Piatto piatto = piatti.get(o.getId_piatto());
+									java.util.Formatter formatter = new java.util.Formatter();
+								%>
 							<tr class="service">
-								<td class="tableitem descrizionescontrino"><p class="itemtext">Communication</p></td>
-								<td class="tableitem quantita"><p class="itemtext">5</p></td>
-								<td class="tableitem"><p class="itemtext">$375.00</p></td>
+								<td class="tableitem descrizionescontrino"><p class="itemtext"><%=piatto.getNome()%></p></td>
+								<td class="tableitem quantita"><p class="itemtext"><%=o.getQuantita()%></p></td>
+								<%double x = (piatto.getPrezzo()*o.getQuantita());%>
+								<td class="tableitem"><p class="itemtext">€ <%=formatter.format("%.2f", x)%></p></td>
+								<% totale+= piatto.getPrezzo()*o.getQuantita();%>
 							</tr>
-
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">Asset Gathering</p></td>
-								<td class="tableitem"><p class="itemtext">3</p></td>
-								<td class="tableitem"><p class="itemtext">$225.00</p></td>
-							</tr>
-
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">Design Development</p></td>
-								<td class="tableitem"><p class="itemtext">5</p></td>
-								<td class="tableitem"><p class="itemtext">$375.00</p></td>
-							</tr>
-
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">Animation</p></td>
-								<td class="tableitem"><p class="itemtext">20</p></td>
-								<td class="tableitem"><p class="itemtext">$1500.00</p></td>
-							</tr>
-
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">Animation Revisions</p></td>
-								<td class="tableitem"><p class="itemtext">10</p></td>
-								<td class="tableitem"><p class="itemtext">$750.00</p></td>
-							</tr>
-
+							<%}%>
 
 							<tr class="tabletitle">
 								<td></td>
 								<td class="Rate"><h2>Iva</h2></td>
-								<td class="payment"><h2>$419.25</h2></td>
+								<td class="payment"><h2>€ <%=totale*22/100.0%></h2></td>
 							</tr>
 
 							<tr class="tabletitle">
 								<td></td>
 								<td class="Rate"><h2>Totale</h2></td>
-								<td class="payment"><h2>$3,644.25</h2></td>
+								<td class="payment"><h2>€ <%=formatter2.format("%.2f", totale)%></h2></td>
 							</tr>
 
 						</table>
 					</div><!--End Table-->
 
 					<div id="legalcopy">
-						<p class="legal">---------------------------- <br> Tavolo N. 2 <br> ---------------------------- </p>
+						<p class="legal">---------------------------- <br> Tavolo N. <%=request.getAttribute("id-tavolo")%> <br> ---------------------------- </p>
 						<P style="color:#000"><b>GRAZIE E ARRIVEDERCI!</b></P>
 					</div>
 

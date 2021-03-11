@@ -1,7 +1,7 @@
 package org.accademiadellevante.cameriere.model;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,7 +16,12 @@ public class Servizio {
     private int id;
 
     @Column
-    private Date Data;
+    private Date data;
+
+    @PrePersist
+    protected void onCreate() {
+        data = new Date();
+    }
 
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
@@ -38,11 +43,11 @@ public class Servizio {
     }
 
     public Date getData() {
-        return Data;
+        return data;
     }
 
     public void setData(Date data) {
-        Data = data;
+        this.data = data;
     }
 
 

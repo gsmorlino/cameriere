@@ -11,4 +11,10 @@ public interface OrdineRepository extends JpaRepository<Ordine, Integer> {
 
     List<Ordine> findAllByServizio(Servizio servizio);
 
+    default List<Ordine> findByIdServizio(int id)
+    {
+        Servizio servizio = new Servizio();
+        servizio.setId(id);
+        return findAllByServizio(servizio);
+    }
 }

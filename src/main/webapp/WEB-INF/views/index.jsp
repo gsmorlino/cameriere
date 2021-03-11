@@ -198,13 +198,16 @@
                     </div>
 
                     <div class="tab-pane fade" id="nav-scontrino" role="tabpanel" aria-labelledby="nav-scontrino-tab">
-
+                        <form action="scontrino" type="post">
                         <div id="scontrino">
-                            <button onclick="location.href='scontrino?id=1'" type="button" class="btn btn-primary"
+                            <input id="id_servizio_scontrino" type="hidden" name="id" value="">
+                            <input id="id_tavolo_scontrino" type="hidden" name="id_tavolo" value="">
+                            <!--<button onclick="location.href='scontrino?id=4'" type="submit" class="btn btn-primary"
                                     id="stampascontrino">&#x1f5b6 Stampa scontrino
-                            </button>
+                            </button>-->
+                            <input onclick="inviaScontrino()" id="stampascontrino" type="submit" value="Stampa scontrino" class="btn btn-primary">
                         </div>
-
+                        </form>
                     </div>
                 </div>
 
@@ -229,9 +232,10 @@
                 </button>
             </div>
             <div class="modal-body">
+                <input type="hidden" id="id_tavolo_libero" value="">
 
                 <div id="occupatavolo">
-                    <button type="button" class="btn btn-primary"  id="tastooccupatavolo"> Occupa tavolo </button>
+                    <button type="button" onclick="occupaTavolo()" class="btn btn-primary" id="tastooccupatavolo"> Occupa tavolo </button>
                 </div>
 
             </div>

@@ -15,7 +15,7 @@ function creaTavolo(tavoloJSON, id_servizio)
             '<div class="btn-group" role="group" aria-label="Third group">',
             '<button onclick="clickBottoneTavoloLibero(this, ',
             tavoloJSON.id || 'Cazzo',
-            ', ', tavoloJSON.posti, ' ) " type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">',
+            ', ', tavoloJSON.posti, ' ) " type="button" class="btn libero" data-toggle="modal" data-target="#exampleModal">',
             tavoloJSON.id || 'Cazzo',
             '<br> (Posti: ',
             tavoloJSON.posti,
@@ -35,6 +35,7 @@ function creaTavolo(tavoloJSON, id_servizio)
             '" name="prodId" type="hidden" value="',
             id_servizio,
             '">',
+
             '<img class="tavoli" src="resources/img/image.jpg">',
             '<div class="btn-group" role="group" aria-label="Third group">',
             '<button onclick="clickBottoneTavolo(this, ',
@@ -55,6 +56,8 @@ function clickBottoneTavolo(elemn, id, posti)
 {
     //elemn.style.color='blue';
     $('#exampleModalScrollableTitle').text('Tavolo '+id + ' (posti a sedere: ' +posti + ')');
+    $('#id_servizio_scontrino').val($('#servizio_tavolo'+id).val());
+    $('#id_tavolo_scontrino').val(id);
     ordine = [];
     id_servizio = servizioAssociatoAlTavolo(getAttivi(), id);
     aggiornaListaOrdini();
@@ -70,8 +73,15 @@ function clickBottoneTavoloLibero(elemn, id, posti)
 {
     //elemn.style.color='blue';
     $('#exampleModalLabel').text('Tavolo '+id + ' (posti a sedere: ' +posti + ')');
+    $('#id_tavolo_libero').val(id);
 }
 
+function occupaTavolo()
+{
+    let id = $('#id_tavolo_libero').val();
+    $.post('inseriscitavoloattivo', {"id":id});
+    setTimeout(aggiornaMappaTavoli(), 5000);
+}
 
 /*
 Accetta un JSON di tavoli e genera un container con i tavoli
