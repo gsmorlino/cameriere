@@ -45,7 +45,9 @@ function creaPiatto(piattoJSON)
 
         '<p class="testomenu">',
         piattoJSON.nome,
-        '</p>' +
+        ' (€ ',
+        piattoJSON.prezzo,
+        ')</p>' +
         '  <p class="descrizione"> ',
         piattoJSON.descrizione,
         '</p>' +
@@ -61,7 +63,7 @@ function creaPiatto(piattoJSON)
         piattoId,
         ', 1)"></div>' +
         '             </div>',
-        '<a href="#" class="btn btn-primary a-btn-slide-text" onclick="aggiungiAllOrdine(this, ',
+        '<a href="#" class="btn btn-primary a-btn-slide-text aggiungi-piatto" onclick="aggiungiAllOrdine(this, ',
         piattoJSON.id,
         ', ',
         piattoId,

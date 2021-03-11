@@ -1,5 +1,7 @@
 package org.accademiadellevante.cameriere.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,12 +22,14 @@ public class Ordine {
 
     @ManyToOne
     @JoinColumn(name = "id_servizio", insertable = false, updatable = false)
+    @JsonIgnore
     public Servizio servizio;
 
 
 
     @ManyToOne
     @JoinColumn(name = "id_piatto", insertable = false, updatable = false)
+    @JsonIgnore
     public Piatto piatti;
 
     public int getQuantita() {

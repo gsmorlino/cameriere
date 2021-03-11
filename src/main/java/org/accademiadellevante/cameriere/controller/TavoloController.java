@@ -1,5 +1,6 @@
 package org.accademiadellevante.cameriere.controller;
 
+import org.accademiadellevante.cameriere.model.Servizio;
 import org.accademiadellevante.cameriere.model.Tavolo;
 import org.accademiadellevante.cameriere.model.TavoloAttivo;
 import org.accademiadellevante.cameriere.repository.ServizioRepository;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 
@@ -31,12 +33,9 @@ public class TavoloController {
     }
 
     @GetMapping(path = "/tavoliattivi")
-    public String getTavoliAttivi(Model model){
-        List<Tavolo> all = tavoloRepository.findAll();
-        //all.get(0).occupato=false;
-        model.addAttribute("numeroTavoli", tavoloRepository.count());
-        model.addAttribute( "tavoli", all);
-        return "tavoliattiviJS";
+    public List<TavoloAttivo> getTavoliAttivi(Model model){
+        return tavoloAttivoRepository.findAll();
+
     }
 
     @GetMapping(path = "/tavolisalainterna")
@@ -52,10 +51,12 @@ public class TavoloController {
     }
 
     @PostMapping(path = "/inseriscitavoloattivo")
-    public @ResponseBody String addTavoliAttivi(@RequestParam int id_tavolo, @RequestParam int id_servizio){
+    public @ResponseBody String addTavoliAttivi(@RequestParam int id){
         TavoloAttivo tavoloAttivo = new TavoloAttivo();
-        tavoloAttivo.setId_tavolo(id_tavolo);
-        tavoloAttivo.setId_servizio(id_servizio);
+        tavoloAttivo.setId_tavolo(id);
+        Servizio servizio = new Servizio();
+        servizioRepository.save(servizio);
+        tavoloAttivo.setId_servizio(servizio.getId());
         tavoloAttivoRepository.save(tavoloAttivo);
         return "Tavolo registrato.";
 

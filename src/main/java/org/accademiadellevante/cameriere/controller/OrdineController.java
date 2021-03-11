@@ -1,16 +1,15 @@
 package org.accademiadellevante.cameriere.controller;
 
 import org.accademiadellevante.cameriere.model.Ordine;
+import org.accademiadellevante.cameriere.model.Servizio;
 import org.accademiadellevante.cameriere.repository.OrdineRepository;
-import org.accademiadellevante.cameriere.repository.PiattoRepository;
-import org.accademiadellevante.cameriere.repository.TavoloAttivoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class OrdineController {
 
     @Autowired
@@ -26,4 +25,11 @@ public class OrdineController {
         return "Ordine registrato.";
     }
 
+    @GetMapping(path = "ordini")
+    public @ResponseBody List<Ordine> getOrdini(@RequestParam int id)
+    {
+        Servizio servizio = new Servizio();
+        servizio.setId(id);
+        return ordineRepository.findAllByServizio(servizio);
+    }
 }
