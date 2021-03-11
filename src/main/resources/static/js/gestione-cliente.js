@@ -14,7 +14,7 @@ function clickBottoneCliente()
     let telefono = $('#telefono-cliente').val();
     if (telefono==='')
     {
-        $('#telefono-cliente').addClass('bordo-rosso').delay(1000).queue(function(){
+        $('#telefono-cliente').addClass('bordo-rosso').delay(5000).queue(function(){
             $('#telefono-cliente').removeClass('bordo-rosso').dequeue();
         });
         $('#nav-cliente').append('<div id="cliente-errore" class="box-not errore"><span>Il numero di cellulare è necessario!</span></div>\n' +
