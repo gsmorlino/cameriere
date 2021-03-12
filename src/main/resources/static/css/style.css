@@ -569,3 +569,13 @@ td{
 {
     color: whitesmoke;
 }
+#liberatavolo {
+    width: 200px;
+    padding: 20px;
+    font-size: 20px;
+}
+#svuota {
+
+    text-align: center;
+    padding: 20px;
+}

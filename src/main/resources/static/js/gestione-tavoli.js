@@ -81,6 +81,7 @@ function occupaTavolo()
     let id = $('#id_tavolo_libero').val();
     $.post('inseriscitavoloattivo', {"id":id});
     setTimeout(aggiornaMappaTavoli(), 5000);
+    $('#exampleModal').modal('hide');
 }
 
 /*
@@ -138,4 +139,13 @@ function aggiornaMappaTavoli() {
     $('#mappa-tavoli').append(sistemaTavoli(tavoli, attivi));
 }
 
+function liberaTavolo()
+{
+    $.ajax({
+        url: 'eliminatavoloattivo?id_tavolo='+$('#id_tavolo_scontrino').val(),
+        type: 'DELETE'
+    });
+    setTimeout(aggiornaMappaTavoli(), 1000);
+    $('#exampleModalScrollable').modal('hide');
+}
 

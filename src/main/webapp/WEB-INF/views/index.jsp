@@ -236,8 +236,13 @@
                                     id="stampascontrino">&#x1f5b6 Stampa scontrino
                             </button>-->
                             <input onclick="inviaScontrino()" id="stampascontrino" type="submit" value="Stampa scontrino" class="btn btn-primary">
+
                         </div>
+
                         </form>
+                        <div id="svuota">
+                            <button onclick="liberaTavolo()" id="liberatavolo"  class="btn libero">Libera tavolo</button>
+                        </div>
                     </div>
                 </div>
 
