@@ -75,7 +75,7 @@
     <a class="navbar-brand" href="">
       <img src="https://www.ricettapizzanapoletana.it/wp-content/uploads/2019/07/pizza-napoletana.jpg" width="80"
            height="60" alt="">
-      <span id="titolo">Pizzeria GENERATION</span>
+      <span id="titolo">Pizzeria GENERATION&#x2122</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,11 +87,11 @@
 
 
         <li class="nav-item active">
-          <a class="nav-link" href="/">Sala Interna <span class="sr-only"></span></a>
+          <a class="nav-link nav-link-barra" href="/">Sala Interna <span class="sr-only"></span></a>
         </li>
         <!-- Nomi degli sviluppatori -->
 
-        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdrop">
+        <button type="button" class="nav-link nav-link-barra" data-toggle="modal" data-target="#staticBackdrop" style="color: white; margin-left: 20px">
           Informazioni
         </button>
 
@@ -109,16 +109,16 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title titolo-nomi-sviluppatori" id="staticBackdropLabel">Nomi degli svuppatori</h5>
+        <h5 class="modal-title titolo-nomi-sviluppatori" id="staticBackdropLabel">Nomi degli sviluppatori</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         </button>
       </div>
-      <div class="modal-body">
-        <h4>Giuseppe Morlino - backend <br>
-          Mirko Elia - backend <br>
-          Giacomo Luparelli - frontend <br>
-          Mario Michele Giagnorio - frontend <br>
-          Nunzio Castagnaro - frontend <br>
+      <div class="modal-body" >
+        <h4 style="color:orange">Giuseppe Morlino <span class="mansioni">- backend</span> <br>
+          Mirko Elia <span class="mansioni">- backend</span>  <br>
+          Giacomo Luparelli <span class="mansioni">- frontend</span>  <br>
+          Mario Michele Giagnorio <span class="mansioni">- frontend</span>  <br>
+          Nunzio Castagnaro <span class="mansioni">- frontend</span> <br>
         </h4>
       </div>
       <div class="modal-footer">
@@ -235,9 +235,15 @@
                 <!--<button onclick="location.href='scontrino?id=4'" type="submit" class="btn btn-primary"
                         id="stampascontrino">&#x1f5b6 Stampa scontrino
                 </button>-->
-                <input onclick="inviaScontrino()" id="stampascontrino" type="submit" value="Stampa scontrino" class="btn btn-primary">
+
+                <input onclick="inviaScontrino()" id="stampascontrino" type="submit" value="&#x1f5b6 Stampa scontrino" class="btn btn-primary">
+
               </div>
+
             </form>
+            <div id="svuota">
+              <button onclick="liberaTavolo()" id="liberatavolo"  class="btn libero">Libera tavolo</button>
+            </div>
           </div>
         </div>
 
@@ -277,7 +283,7 @@
 </div>
 
 <div class="sfondoesterno">
-  <h4 id="nome-sala" style="color:black">SALA ESTERNA</h4>
+  <h4 id="nome-sala" style="color: black">SALA ESTERNA</h4>
 
 
   <div id="mappa-tavoli">

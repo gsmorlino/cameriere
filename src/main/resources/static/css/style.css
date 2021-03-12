@@ -397,6 +397,14 @@ h6 {
     padding: .5rem 1rem;
     border: groove;
     border-color: burlywood;
+
+}
+
+.nav-link-barra
+{
+    border-radius: 8px;
+    width: 120px;
+    text-align: center;
 }
 
 .pclienti {

@@ -75,7 +75,7 @@
         <a class="navbar-brand" href="">
             <img src="https://www.ricettapizzanapoletana.it/wp-content/uploads/2019/07/pizza-napoletana.jpg" width="80"
                  height="60" alt="">
-            <span id="titolo">Pizzeria GENERATION</span>
+            <span id="titolo">Pizzeria GENERATION&#x2122</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,11 +87,11 @@
 
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="salaEsterna">Sala Esterna <span class="sr-only"></span></a>
+                    <a class="nav-link nav-link-barra" href="salaEsterna">Sala Esterna <span class="sr-only"></span></a>
                 </li>
                 <!-- Nomi degli sviluppatori -->
 
-                <button type="button" class="nav-link " data-toggle="modal" data-target="#staticBackdrop" style="color: white; margin-left: 20px">
+                <button type="button" class="nav-link nav-link-barra" data-toggle="modal" data-target="#staticBackdrop" style="color: white; margin-left: 20px">
                     Informazioni
                 </button>
 
