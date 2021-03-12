@@ -67,7 +67,6 @@ function aggiungiAllOrdine(el, id, piattoId)
         ordine[k].quantita=parseInt(ordine[k].quantita) + parseInt(fieldQuant);
     }
     else {
-        console.log(id_servizio);
         ordine.push({'id': id, "quantita":  parseInt(fieldQuant), "id_servizio": id_servizio});
     }
 
@@ -80,7 +79,6 @@ function modificaQuantitaOrdine(el, quant, variazione)
 {
     let somma = parseInt(quant) + variazione;
     //let i = ordine.indexOf(el);
-    console.log(el);
     if (somma >= 1)
         findById(ordine, el).quantita=somma;
     aggiornaListaOrdini();
@@ -97,7 +95,6 @@ function creaElencoOrdiniInCorso(ordini)
     if (ordini.length===0) return "";
     let elenco_ordini = "";
     let totale = 0.0;
-    console.log(ordini);
     elenco_ordini = elenco_ordini.concat('<h6>Ordine In Corso</h6><div class="menuordine">\n' +
         '                            <div class="row">')
     for (let i in ordini)
@@ -151,16 +148,20 @@ function inviaOrdine()
 function getOrdiniInviati()
 {
     ordini_inviati = getRest('ordini?id='+id_servizio);
-    console.log(ordini_inviati);
 }
 
 function creaElencoOrdiniInviati(ordinelli)
 {
-    if (ordinelli.length===0) return "";
+    if (ordinelli.length==0) {
+        if (ordine.length==0)
+        {
+            return '<h6 style="margin-top: 20px">Non ci sono ordini</h6>';
+        }
+        return "";
+    }
     let elenco_ordini_inviati = "";
 
     let totale = 0.0;
-    console.log(ordinelli);
     elenco_ordini_inviati = elenco_ordini_inviati.concat('<h6>Ordine Inviato</h6>\n' +
         '        <div class="menuordine">\n' +
         '                            <div class="row sec">')

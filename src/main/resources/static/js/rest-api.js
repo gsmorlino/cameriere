@@ -37,11 +37,23 @@ $(document).ready(function() {
     //aggiungiOrdine(ordine_test);
 
     lista_piatti = getMenu();
-    setInterval(aggiornaMappaTavoli, 2*1000);
+    setInterval(aggiornaTutto, 2*1000);
     aggiornaMappaTavoli();
     generaMenu();
 });
 
+function aggiornaTutto()
+{
+    aggiornaMappaTavoli();
+    if (id_servizio!==null)
+    {
+        aggiornaListaOrdini();
+    }
+    $('#cliente-successo').remove();
+    $('#cliente-errore').remove();
+    $('#ordine-successo').remove();
+    $('#ordine-errore').remove();
+}
 
 
 
