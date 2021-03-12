@@ -235,7 +235,8 @@
                             <!--<button onclick="location.href='scontrino?id=4'" type="submit" class="btn btn-primary"
                                     id="stampascontrino">&#x1f5b6 Stampa scontrino
                             </button>-->
-                            <input onclick="inviaScontrino()" id="stampascontrino" type="submit" value="Stampa scontrino" class="btn btn-primary">
+
+                            <input onclick="inviaScontrino()" id="stampascontrino" type="submit" value="&#x1f5b6 Stampa scontrino" class="btn btn-primary">
 
                         </div>
 
