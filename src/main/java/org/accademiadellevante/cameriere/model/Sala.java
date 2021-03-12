@@ -1,5 +1,6 @@
 package org.accademiadellevante.cameriere.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -21,7 +22,7 @@ public class Sala {
 
 
     @OneToMany(mappedBy = "sala")
-    @JsonIgnoreProperties("sala")
+    @JsonIgnore
     public List<Tavolo> tavoli;
 
 

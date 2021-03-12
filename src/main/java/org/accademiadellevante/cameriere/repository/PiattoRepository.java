@@ -10,6 +10,7 @@ import java.util.List;
 public interface PiattoRepository extends JpaRepository<Piatto, Integer> {
     List<Piatto> getAllByPortata(Portata portata);
 
+
     default List<Piatto> getAntipasti() {
         Portata antipasti = new Portata();
         antipasti.setId(7);

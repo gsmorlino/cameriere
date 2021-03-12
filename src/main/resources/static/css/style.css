@@ -52,8 +52,9 @@ h4 {
 
 .sfondoesterno {
     background-image: url("../img/esterno.jpg");
-    background-size:cover;
-
+    background-size:1024px 800px;
+    padding-top: 80px;
+    height: 768px;
 }
 
 .orologio {
@@ -285,6 +286,7 @@ h3 {
 #inviaordine {
     text-align:right;
     margin-top:20px;
+    margin-bottom: 48px;
 
 }
 
@@ -343,6 +345,68 @@ h3 {
     padding: 20px;
     font-size: 20px;
 }
+
+#occupatavolo {
+
+    text-align: center;
+    padding: 20px;
+}
+
+#tastooccupatavolo {
+
+    padding: 20px;
+    font-size: 20px;
+}
+
+.sec {
+
+    border-top: groove;
+}
+
+.menuordineinvio {
+
+    font-size:20px;
+    color:white;
+}
+
+.col-sm-4.s{
+
+    padding: 7px 2px 0px 98px;
+    border-right: inset;
+    border-left: inset;
+}
+
+h6 {
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+}
+
+.btn.libero {
+
+    color: #fff;
+    background-color: forestgreen;
+    border-color: forestgreen;
+
+}
+
+.nav-link {
+
+    display: block;
+    background-color: grey;
+    padding: .5rem 1rem;
+    border: groove;
+    border-color: burlywood;
+}
+
+.pclienti {
+    color: white;
+    font-size: 23px;
+    font-style: italic;
+}
+
+
+
 
 
 
@@ -490,6 +554,18 @@ td{
     border: 2px solid red;
 }
 .errore {
-    border:1px solid #e04713;
+    border: 1px solid #e04713;
     background-color: #ef7645;
+}
+.titolo-nomi-sviluppatori
+{
+    font-size: 35px;
+}
+.rigatavoli
+{
+    margin-bottom: -70px;
+}
+.mansioni
+{
+    color: whitesmoke;
 }

@@ -89,6 +89,14 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="salaEsterna">Sala Esterna <span class="sr-only"></span></a>
                 </li>
+                <!-- Nomi degli sviluppatori -->
+
+                <button type="button" class="nav-link " data-toggle="modal" data-target="#staticBackdrop" style="color: white; margin-left: 20px">
+                    Informazioni
+                </button>
+
+
+
 
             </ul>
         </div>
@@ -96,7 +104,29 @@
     </nav>
 
 </div>
-
+<!-- Nomi degli sviluppatori -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title titolo-nomi-sviluppatori" id="staticBackdropLabel">Nomi degli sviluppatori</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body" >
+                <h4 style="color:orange">Giuseppe Morlino <span class="mansioni">- backend</span> <br>
+                    Mirko Elia <span class="mansioni">- backend</span>  <br>
+                    Giacomo Luparelli <span class="mansioni">- frontend</span>  <br>
+                    Mario Michele Giagnorio <span class="mansioni">- frontend</span>  <br>
+                    Nunzio Castagnaro <span class="mansioni">- frontend</span> <br>
+                </h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- TABELLA SERVIZI TAVOLO -->
 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
      aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">

@@ -132,7 +132,7 @@ function getAttivi() {
 }
 
 function aggiornaMappaTavoli() {
-    let tavoli = getRest('tavolisalainterna');
+    let tavoli = getRest('tavolisalaesterna');
     let attivi = getAttivi();
     $('#mappa-tavoli').empty();
     $('#mappa-tavoli').append(sistemaTavoli(tavoli, attivi));
