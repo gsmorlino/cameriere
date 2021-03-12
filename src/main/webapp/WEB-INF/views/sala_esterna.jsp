@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>App Pizzeria</title>
-<link rel="stylesheet" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="resources/css/Style.css">
 
 
 </head>
@@ -95,25 +95,25 @@
 <div class="container">
   <div class="row">
     <div class="col-md">
-      <img class="tavoli" src="../../img/image.jpg">
+      <img class="tavoli" src="resources/img/image.jpg">
       <div class="btn-group" role="group" aria-label="Third group">
     <button type="button" class="btn btn-dark">9</button>
   </div>
     </div>
     <div class="col-md">
-      <img class="tavoli" src="../../img/image.jpg">
+      <img class="tavoli" src="resources/img/image.jpg">
       <div class="btn-group" role="group" aria-label="Third group">
     <button type="button" class="btn btn-dark">10</button>
   </div>
     </div>
     <div class="col-md">
-      <img class="tavoli" src="../../img/image.jpg">
+      <img class="tavoli" src="resources/img/image.jpg">
       <div class="btn-group" role="group" aria-label="Third group">
     <button type="button" class="btn btn-dark">11</button>
   </div>
     </div>
     <div class="col-md">
-     <img class="tavoli" src="../../img/image.jpg">
+     <img class="tavoli" src="resources/img/image.jpg">
      <div class="btn-group" role="group" aria-label="Third group">
     <button type="button" class="btn btn-dark">12</button>
   </div>
@@ -124,25 +124,25 @@
 <div class="container">
   <div class="row">
     <div class="col-md">
-      <img class="tavoli" src="../../img/image.jpg">
+      <img class="tavoli" src="resources/img/image.jpg">
       <div class="btn-group" role="group" aria-label="Third group">
     <button type="button" class="btn btn-dark">13</button>
   </div>
     </div>
     <div class="col-md">
-      <img class="tavoli" src="../../img/image.jpg">
+      <img class="tavoli" src="resources/img/image.jpg">
       <div class="btn-group" role="group" aria-label="Third group">
     <button type="button" class="btn btn-dark">14</button>
   </div>
     </div>
     <div class="col-md">
-      <img class="tavoli" src="../../img/image.jpg">
+      <img class="tavoli" src="resources/img/image.jpg">
       <div class="btn-group" role="group" aria-label="Third group">
     <button type="button" class="btn btn-dark">15</button>
   </div>
     </div>
     <div class="col-md">
-     <img class="tavoli" src="../../img/image.jpg">
+     <img class="tavoli" src="resources/img/image.jpg">
      <div class="btn-group" role="group" aria-label="Third group">
     <button type="button" class="btn btn-dark">16</button>
   </div>
@@ -156,6 +156,6 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="../../js/bootstrap.bundle.min.js"></script>
+<script src="resources/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

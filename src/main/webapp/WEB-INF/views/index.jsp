@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>App Pizzeria</title>
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/Style.css">
 
     <!-- CONTATORI -->
     <script type="text/javascript">

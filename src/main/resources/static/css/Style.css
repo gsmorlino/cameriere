@@ -285,6 +285,7 @@ h3 {
 #inviaordine {
     text-align:right;
     margin-top:20px;
+    margin-bottom: 48px;
 
 }
 
@@ -343,6 +344,68 @@ h3 {
     padding: 20px;
     font-size: 20px;
 }
+
+#occupatavolo {
+
+    text-align: center;
+    padding: 20px;
+}
+
+#tastooccupatavolo {
+
+    padding: 20px;
+    font-size: 20px;
+}
+
+.sec {
+
+    border-top: groove;
+}
+
+.menuordineinvio {
+
+    font-size:20px;
+    color:white;
+}
+
+.col-sm-4.s{
+
+    padding: 7px 2px 0px 98px;
+    border-right: inset;
+    border-left: inset;
+}
+
+h6 {
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+}
+
+.btn.libero {
+
+    color: #fff;
+    background-color: forestgreen;
+    border-color: forestgreen;
+
+}
+
+.nav-link {
+
+    display: block;
+    background-color: grey;
+    padding: .5rem 1rem;
+    border: groove;
+    border-color: burlywood;
+}
+
+.pclienti {
+    color: white;
+    font-size: 23px;
+    font-style: italic;
+}
+
+
+
 
 
 
